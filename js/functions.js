@@ -90,7 +90,7 @@
      */
 
     let billAmount = parseInt(prompt("Bill Total"));
-    let tipPercent = parseInt(prompt("Tip Percent"));
+    let tipPercent = parseInt(prompt("Tip Percent"))/100;
     let tipAmount = calculateTip(tipPercent, billAmount);
 
     alert("Tip: $" + tipAmount.toFixed(2));
@@ -118,7 +118,7 @@
     // console.log("Discount price is $" + applyDiscount(100, 0.20));
 
     let origPrice = Number(prompt("Item Price"));
-    let disPercent = Number(prompt("Discount Percent"));
+    let disPercent = Number(prompt("Discount Percent"))/100;
     let dicPrice = applyDiscount(origPrice, disPercent);
 
     alert("Discount price is $" + dicPrice);

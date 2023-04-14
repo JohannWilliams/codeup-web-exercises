@@ -117,9 +117,9 @@
 
     // console.log("Discount price is $" + applyDiscount(100, 0.20));
 
-    let origPric = Number(prompt("Item Price"));
+    let origPrice = Number(prompt("Item Price"));
     let disPercent = Number(prompt("Discount Percent"));
-    let dicPrice = applyDiscount(origPric, disPercent);
+    let dicPrice = applyDiscount(origPrice, disPercent);
 
     alert("Discount price is $" + dicPrice);
 

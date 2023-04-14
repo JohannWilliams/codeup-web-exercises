@@ -18,10 +18,10 @@ alert("Great, " + favoriteColor + " is my favorite color too");
  */
 
 let rentalDaysString = "How many days to rent: ";
-let littleM = Number(prompt(rentalDaysString + "The Little Mermaid"));
-let brotherB = Number(prompt(rentalDaysString + "Brother Bear"));
-let hercules = Number(prompt(rentalDaysString + "Hercules"));
-let pricePerDay = Number(prompt("What is the fee for renting a movie per day?"));
+let littleM = parseInt(prompt(rentalDaysString + "The Little Mermaid"));
+let brotherB = parseInt(prompt(rentalDaysString + "Brother Bear"));
+let hercules = parseInt(prompt(rentalDaysString + "Hercules"));
+let pricePerDay = parseInt(prompt("What is the fee for renting a movie per day?"));
 let rentalFee = (littleM + brotherB + hercules) * pricePerDay;
 
 alert("The total rental fee is: $" + rentalFee);
@@ -39,12 +39,12 @@ alert("The total rental fee is: $" + rentalFee);
  *          * FaceBook  10
  */
 
-let gPay = Number(prompt("How much is Google paying you?"));
-let aPay = Number(prompt("How much is Amazon paying you?"));
-let fbPay = Number(prompt("How much is FaceBook paying you?"));
-let gHrs = Number(prompt("How many hours did you work for Google?"));
-let aHrs = Number(prompt("How many hours did you work for Amazon?"));
-let fbHrs = Number(prompt("How many hours did you work for FaceBook?"));
+let gPay = parseInt(prompt("How much is Google paying you?"));
+let aPay = parseInt(prompt("How much is Amazon paying you?"));
+let fbPay = parseInt(prompt("How much is FaceBook paying you?"));
+let gHrs = parseInt(prompt("How many hours did you work for Google?"));
+let aHrs = parseInt(prompt("How many hours did you work for Amazon?"));
+let fbHrs = parseInt(prompt("How many hours did you work for FaceBook?"));
 let weeklyPay = (gPay * gHrs) + (aPay * aHrs) + (fbPay * fbHrs);
 
 alert("You made $" + weeklyPay + " this week!!!");

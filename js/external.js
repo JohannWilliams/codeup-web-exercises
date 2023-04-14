@@ -64,7 +64,10 @@ alert("You made $" + weeklyPay + " this week!!!");
  *          * Schedule conflict
  */
 
-// TODO update this to alert the user of the ability to enroll
+let classNotFull = confirm("Does the Class have space available?");
+let noSchedConf = confirm("Is the time free in your schedule?");
+
+alert("You can register: " + (classNotFull && noSchedConf));
 
 /**
  * Working on Exercise 3
@@ -79,4 +82,8 @@ alert("You made $" + weeklyPay + " this week!!!");
  *          * Member Not Premium and Has 2 or Fewer Items
  */
 
-// TODO update this to alert the user if they can apply the Offer or not
+let codeNotExp = confirm("Is the code still valid?");
+let premiumMember = confirm("Are you a Premium Member?");
+let moreThanTwoItems = confirm("Do you have More than 2 Items?");
+
+alert("Offer Applied: " + (codeNotExp && (premiumMember || moreThanTwoItems)));

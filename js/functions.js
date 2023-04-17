@@ -14,6 +14,7 @@
     function sayHello(name){
         return "Hello, " + name + "!";
     }
+    console.log(sayHello("codeup"));
 
     /**
      * TODO:
@@ -59,10 +60,10 @@
      * number)
      */
 
-    function isTwo(num){
+    function isTwo(){
         return num === 2;
     }
-
+    console.log(random);
     let result = isTwo(random);
     console.log(result);
 
@@ -90,7 +91,7 @@
      */
 
     let billAmount = parseInt(prompt("Bill Total"));
-    let tipPercent = parseInt(prompt("Tip Percent"))/100;
+    let tipPercent = parseInt(prompt("Tip Percent (0-100)"))/100;
     let tipAmount = calculateTip(tipPercent, billAmount);
 
     alert("Tip: $" + tipAmount.toFixed(2));
@@ -118,7 +119,7 @@
     // console.log("Discount price is $" + applyDiscount(100, 0.20));
 
     let origPrice = parseInt(prompt("Item Price"));
-    let disPercent = parseInt(prompt("Discount Percent"))/100;
+    let disPercent = parseInt(prompt("Discount Percent (0-100)"))/100;
     let dicPrice = applyDiscount(origPrice, disPercent);
 
     alert("Discount price is $" + dicPrice);

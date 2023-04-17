@@ -39,7 +39,7 @@
     //     } else if(lowerColor == "indigo"){
     //         message = "Thinking about a rainbow now, thanks indigo";
     //     } else if(lowerColor == "violet"){
-    //         message = "I like violet as a name and its a beautiful color";
+        //         message = "I like violet as a name, and it's a beautiful color";
     //     } else {
     //         message = "I don't know anything about " + lowerColor;
     //     }
@@ -195,38 +195,72 @@
      * HINT: The way we prompt for a value could be improved
      */
 
-    function evaluateNum(yes){
-        if(yes){
-            let numStr = prompt("Enter a number.");
-            if(!isNaN(parseInt(numStr))){
-                let num = parseInt(numStr);
+    // function evaluateNum(yes){
+    //     if(yes){
+    //         let numStr = prompt("Enter a number.");
+    //         if(!isNaN(parseInt(numStr))){
+    //             let num = parseInt(numStr);
+    //
+    //             let even = num % 2 === 0;
+    //             let numPlusOneHundred = num + 100;
+    //             let pos = num > 0;
+    //             let numZero = num === 0;
+    //
+    //             if(even){
+    //                 alert(num + " is even!");
+    //             } else {
+    //                 alert(num + " is odd!");
+    //             }
+    //
+    //             alert("Your number was " + num + ". After adding 100 it is " + numPlusOneHundred + ".");
+    //
+    //             if(pos && !numZero) {
+    //                 alert(num + " is positive!");
+    //             } else if(!pos && !numZero){
+    //                 alert(num + " is Negative!");
+    //             } else if(numZero){
+    //                 alert(num + " is Zero(0). Not (-) or (+)!")
+    //             }
+    //         } else {
+    //             alert("Data Type should be a number not a(n) " + typeof numStr);
+    //         }
+    //     }
+    // }
+    //
+    // evaluateNum(confirm("Would you like to enter a number?"));
 
-                let even = num % 2 === 0;
-                let numPlusOneHundred = num + 100;
-                let pos = num > 0;
-                let numZero = num === 0;
+    function evaluateNum(numStr){
+        if(!isNaN(parseInt(numStr))){
+            let num = parseInt(numStr);
 
-                if(even){
-                    alert(num + " is even!");
-                } else {
-                    alert(num + " is odd!");
-                }
+            let even = num % 2 === 0;
+            let numPlusOneHundred = num + 100;
+            let pos = num > 0;
+            let numZero = num === 0;
 
-                alert("Your number was " + num + ". After adding 100 it is " + numPlusOneHundred + ".");
-
-                if(pos && !numZero) {
-                    alert(num + " is positive!");
-                } else if(!pos && !numZero){
-                    alert(num + " is Negative!");
-                } else if(numZero){
-                    alert(num + " is Zero(0). Not (-) or (+)!")
-                }
+            if(even){
+                alert(num + " is even!");
             } else {
-                alert("Data Type should be a number not a(n) " + typeof numStr);
+                alert(num + " is odd!");
             }
+
+            alert("Your number was " + num + ". After adding 100 it is " + numPlusOneHundred + ".");
+
+            if(pos && !numZero) {
+                alert(num + " is positive!");
+            } else if(!pos && !numZero){
+                alert(num + " is Negative!");
+            } else if(numZero){
+                alert(num + " is Zero(0). Not (-) or (+)!")
+            }
+        } else {
+            alert("Data Type should be a number not a(n) " + typeof numStr);
         }
     }
 
-    evaluateNum(confirm("Would you like to enter a number?"));
+    let evaluate = confirm("Would you like to enter a number?");
+    if(evaluate){
+        evaluateNum(prompt("Enter a number."));
+    }
 
 })();

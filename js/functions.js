@@ -60,7 +60,7 @@
      * number)
      */
 
-    function isTwo(){
+    function isTwo(num){
         return num === 2;
     }
     console.log(random);

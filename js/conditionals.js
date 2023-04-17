@@ -22,24 +22,90 @@
      * Test your function by passing various string literals to it and
      * console.logging the function's return value
      */
-
-// Don't change the next two lines!
-// These lines create two variables for you:
-// - `colors`: a list of the colors of the rainbow
-// - `randomColor`: contains a single random color value from the list (this
-//                  will contain a different color every time the page loads)
+    //
+    // function analyzeColor(color){
+    //     let lowerColor = color.toLowerCase();
+    //     let message = "";
+    //     if(lowerColor == "blue"){
+    //         message = "Blue is the color of the sky";
+    //     } else if(lowerColor == "red"){
+    //         message = "Strawberries are red";
+    //     } else if(lowerColor == "orange"){
+    //         message = "Oranges are orange";
+    //     } else if(lowerColor == "yellow"){
+    //         message = "I like Lays chips also";
+    //     } else if(lowerColor == "green"){
+    //         message = "My grass is not green right now";
+    //     } else if(lowerColor == "indigo"){
+    //         message = "Thinking about a rainbow now, thanks indigo";
+    //     } else if(lowerColor == "violet"){
+    //         message = "I like violet as a name and its a beautiful color";
+    //     } else {
+    //         message = "I don't know anything about " + lowerColor;
+    //     }
+    //     return message;
+    // }
+    //
+    // console.log(analyzeColor("red"));
+    // console.log(analyzeColor("blue"));
+    // console.log(analyzeColor("baby blue"));
+    // console.log(analyzeColor("indigo"));
+    //
+    // // Don't change the next two lines!
+    // // These lines create two variables for you:
+    // // - `colors`: a list of the colors of the rainbow
+    // // - `randomColor`: contains a single random color value from the list (this
+    // //                  will contain a different color every time the page loads)
     var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
     var randomColor = colors[Math.floor(Math.random() * colors.length)];
-    /**
-     * TODO:
-     * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
-     * You should see a different message every time you refresh the page
-     */
+    // /**
+    //  * TODO:
+    //  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
+    //  * You should see a different message every time you refresh the page
+    //  */
+    //
+    // console.log(analyzeColor(randomColor));
+    //
 
     /**
      * TODO:
      * Comment out the code above, and refactor your function to use a switch-case statement
      */
+
+    function analyzeColor(color){
+        let lowerColor = color.toLowerCase();
+        let message = "";
+        switch(lowerColor){
+            case "red":
+                message = "Strawberries are red";
+                break;
+            case "orange":
+                message = "Oranges are orange";
+                break;
+            case "yellow":
+                message = "I like Lays chips also";
+                break;
+            case "green":
+                message = "My grass is not green right now";
+                break;
+            case "blue":
+                message = "Blue is the color of the sky";
+                break;
+            case "indigo":
+                message = "Thinking about a rainbow now, thanks indigo";
+                break;
+            case "violet":
+                message = "I like violet as a name and its a beautiful color";
+                break;
+            default:
+                message = "I don't know anything about " + color;
+        }
+
+        return message;
+
+    }
+
+    console.log(analyzeColor(randomColor));
 
     /**
      * TODO:
@@ -47,6 +113,9 @@
      * user to your `analyzeColor` function. Alert the return value from your
      * function to show it to the user.
      */
+
+    let userColor = prompt("Enter a color here!");
+    alert(analyzeColor(userColor));
 
     /* ########################################################################## */
 
@@ -70,6 +139,29 @@
      * return value.
      */
 
+    function calculateTotal(luckyNum, amount){
+        let discountPrice = 0;
+        let discount = 0;
+        if(luckyNum === 1){
+            discount = 0.10;
+        } else if(luckyNum === 2){
+            discount = 0.25;
+        } else if(luckyNum === 3){
+            discount = 0.35;
+        } else if(luckyNum === 4){
+            discount = 0.50;
+        } else if(luckyNum === 5){
+            discount = 1;
+        }
+        discountPrice = amount - (amount * discount);
+        return discountPrice;
+    }
+
+    console.log(calculateTotal(0, 100));
+    console.log(calculateTotal(4, 100));
+    console.log(calculateTotal(5, 100));
+
+
     /**
      * TODO:
      * Uncomment the line below to generate a random number between 0 and 5.
@@ -79,7 +171,10 @@
      * price before the discount was, and what their price after the discount is.
      */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+    var luckyNumber = Math.floor(Math.random() * 6);
+
+    let myBill = parseInt(prompt("Enter bill amount here!"));
+    alert("You got Lucky Number: " + luckyNumber + ". Initial price was $" + myBill + ". \nYour final price is $" + calculateTotal(luckyNumber, myBill));
 
     /**
      * TODO:
@@ -99,4 +194,39 @@
      * Can you refactor your code to use functions?
      * HINT: The way we prompt for a value could be improved
      */
+
+    function evaluateNum(yes){
+        if(yes){
+            let numStr = prompt("Enter a number.");
+            if(!isNaN(parseInt(numStr))){
+                let num = parseInt(numStr);
+
+                let even = num % 2 === 0;
+                let numPlusOneHundred = num + 100;
+                let pos = num > 0;
+                let numZero = num === 0;
+
+                if(even){
+                    alert(num + " is even!");
+                } else {
+                    alert(num + " is odd!");
+                }
+
+                alert("Your number was " + num + ". After adding 100 it is " + numPlusOneHundred + ".");
+
+                if(pos && !numZero) {
+                    alert(num + " is positive!");
+                } else if(!pos && !numZero){
+                    alert(num + " is Negative!");
+                } else if(numZero){
+                    alert(num + " is Zero(0). Not (-) or (+)!")
+                }
+            } else {
+                alert("Data Type should be a number not a(n) " + typeof numStr);
+            }
+        }
+    }
+
+    evaluateNum(confirm("Would you like to enter a number?"));
+
 })();

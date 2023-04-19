@@ -9,7 +9,12 @@
      * and if the correct input type is not given then you just prompt the user
      * again. The prompt will display until the condition is met for a correct
      * input.
+     * example:
+     *  while(isNaN(num) || num % 2 === 0 || num < 1 || num > 50 || num === undefined){
+     *      num = parseInt(prompt("Incorrect input please try again. Odd Number between 1 and 50"));
+     *  }
      */
+
     while(true){
         if(isNaN(num) || num % 2 === 0 || num < 1 || num > 50 || num === undefined){
             num = parseInt(prompt("Incorrect input please try again. Odd Number between 1 and 50"));

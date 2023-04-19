@@ -3,7 +3,6 @@
 
     /**
      * start of problem. times table. 1 - 10
-     * @param num
      */
     function showMultiplicationTable(num){
         for(let i = 1; i <= 10; i++){
@@ -12,11 +11,6 @@
     }
 
     showMultiplicationTable(parseFloat(prompt("Enter a number for a Times Table from 1 to 10 of that number!")));
-
-    /**
-     * end of problem
-     */
-
 
 
     /**
@@ -42,9 +36,7 @@
         }
     }
 
-    /**
-     * end of problem
-     */
+
 
     /**
      * start of next problem
@@ -64,9 +56,6 @@
         console.log(i.toString().repeat(i));
     }
 
-    /**
-     * end of problem
-     */
 
     /**
      * start of next problem, log all multiples of 5 starting from 100 and going down to 5.
@@ -75,9 +64,5 @@
     for(let i = 100; i >= 5; i -= 5){
         console.log(i);
     }
-
-    /**
-     * end of problem
-     */
 
 })();

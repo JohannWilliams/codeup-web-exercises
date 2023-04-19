@@ -12,9 +12,6 @@
         i++;
     }
 
-    /**
-     * end of while problem
-     */
 
     /**
      * start of do while
@@ -40,8 +37,5 @@
 
     } while(numCones > 0);
 
-    /**
-     * end of ice cream
-     */
 
 })();

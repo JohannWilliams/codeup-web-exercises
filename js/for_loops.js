@@ -11,9 +11,7 @@
         }
     }
 
-    // TODO: uncomment this line below
-
-    //  showMultiplicationTable(parseFloat(prompt("Enter a number for a Times Table from 1 to 10 of that number!")));
+    showMultiplicationTable(parseFloat(prompt("Enter a number for a Times Table from 1 to 10 of that number!")));
 
     /**
      * end of problem

@@ -11,7 +11,10 @@
         }
     }
 
-    showMultiplicationTable(parseFloat(prompt("Enter a number for a Times Table from 1 to 10 of that number!")));
+    // TODO: uncomment this line below
+
+    //  showMultiplicationTable(parseFloat(prompt("Enter a number for a Times Table from 1 to 10 of that number!")));
+
     /**
      * end of problem
      */
@@ -39,6 +42,40 @@
         } else {
             console.log(random + " is odd!");
         }
+    }
+
+    /**
+     * end of problem
+     */
+
+    /**
+     * start of next problem
+     * display the below output with a for loop
+     * 1
+     * 22
+     * 333
+     * 4444
+     * 55555
+     * 666666
+     * 7777777
+     * 88888888
+     * 999999999
+     */
+
+    for(let i = 1; i < 10; i++){
+        console.log(i.toString().repeat(i));
+    }
+
+    /**
+     * end of problem
+     */
+
+    /**
+     * start of next problem, log all multiples of 5 starting from 100 and going down to 5.
+     */
+
+    for(let i = 100; i >= 5; i -= 5){
+        console.log(i);
     }
 
     /**

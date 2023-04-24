@@ -79,4 +79,8 @@
     console.log(second(nums));
     console.log(last(nums));
 
+    console.log(first(names));
+    console.log(second(names));
+    console.log(last(names));
+
 })();

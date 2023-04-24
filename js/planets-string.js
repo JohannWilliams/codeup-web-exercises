@@ -19,6 +19,10 @@
      * Create a string with <br> tags between each planet. console.log() your
      * results. Why might this be useful?
      *
+     * This is useful becasue you can then place your string directly into the
+     * innerHTML of the body, h1, p, or other document element and display that
+     * information right on your page.
+     *
      * BONUS:
      * Create another string that would display your planets in an undordered
      * list. You will need an opening AND closing <ul> tags around the entire

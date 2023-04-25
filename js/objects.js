@@ -76,6 +76,47 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
+    let books = [
+    {
+        title : "Yeah",
+        author : {
+            firstName: "John",
+            lastName: "Doe"
+        }
+    },
+    {
+        title : "Boy",
+        author : {
+            firstName: "Doe",
+            lastName:  "John"
+        }
+    },
+    {
+        title : "The Man Who Cried Mommy!!!",
+        author : {
+            firstName: "Jan",
+            lastName:  "Smith"
+        }
+    },
+    {
+        title : "Boy Girl, Fire Water",
+        author : {
+            firstName: "Moby",
+            lastName:  "Deck"
+        }
+    },
+    {
+        title : "Run Home Jack!",
+        author : {
+            firstName: "Mr.",
+            lastName:  "Sme"
+        }
+    }]
+
+    // console.log(books[0].title) // "Yeah"
+    // console.log(books[0].author.firstName) // "John"
+    // console.log(books[0].author.lastName) // "Doe"
+
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -100,6 +141,11 @@
      *      ---
      *      ...
      */
+
+    books.forEach(function (book, index){
+        console.log(`Book # ${index+1}\nTitle: ${book.title}\nAuthor: ${book.author.firstName} ${book.author.lastName}\n---`);
+    });
+
 
     /**
      * Bonus:

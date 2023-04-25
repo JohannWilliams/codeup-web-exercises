@@ -283,9 +283,7 @@
      */
 
     function createBook(title, author){
-        let newBook = new Book()
-        newBook.setBookTitle = title;
-        newBook.setBookAuthor = author;
+        let newBook = new Book(title, author);
         return newBook;
     }
 
@@ -302,7 +300,7 @@
         newBooksArr.push(createBook(newTitleList[i], new Author(newAuthorList[i][j], newAuthorList[i][j+1])))
     }
 
-    newBooksArr.forEach(function (book, index){
+    newBooksArr.forEach(function (book){
         showBookInfo(book);
     });
 

@@ -55,6 +55,14 @@
         {name: 'George', amount: 320}
     ];
 
+    shoppers.forEach(function (shopper){
+        let discount = 0;
+        if(shopper.amount > 200){
+            discount = 12;
+        }
+        console.log(`${shopper.name}, your initial price was $${shopper.amount.toFixed(2)}. Your discount is ${discount}%. Your final due is $${(shopper.amount - ((discount/100)*shopper.amount)).toFixed(2)}`);
+    });
+
     /** TODO:
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author

@@ -186,7 +186,7 @@
     //     console.log(`Book # ${newBooksArr1.indexOf(book) + 1}\nTitle: ${book.title}\nAuthor: ${book.author.firstName} ${book.author.lastName}\n---`);
     // }
     //
-    // for(let i = 0; i < books.length; i++){
+    // for(let i = 0; i < newBooksArr1.length; i++){
     //     showBookInfo(newBooksArr1[i]);
     // }
 

@@ -158,4 +158,38 @@
      *   `showBookInfo` function.
      */
 
+    let titlesArr = ["Yeah", "Boy", "The Man Who Cried Mommy!!!", "Boy Girl, Fire Water", "Run Home Jack!"];
+    let firstNamesArr = ["John", "Doe", "Jan", "Moby", "Mr"];
+    let lastNamesArr = ["Doe", "John", "Smith", "Deck", "Sme"];
+    function createBook(title, author){
+        let book = {
+            title: title,
+            author: {
+                firstName: author.firstName,
+                lastName: author.lastName
+            }
+        };
+        return book;
+    }
+
+    let newBooksArr = []
+
+    for(let i = 0; i < titlesArr.length; i++){
+        let author = {
+            firstName: firstNamesArr[i],
+            lastName: lastNamesArr[i]
+        }
+        newBooksArr.push(createBook(titlesArr[i], author))
+    }
+
+    function showBookInfo(book, i){
+        console.log(`Book # ${i+1}\nTitle: ${book.title}\nAuthor: ${book.author.firstName} ${book.author.lastName}\n---`);
+    }
+
+    for(let i = 0; i < books.length; i++){
+        showBookInfo(books[i], i);
+    }
+
+
+
 })();

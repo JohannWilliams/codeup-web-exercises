@@ -288,7 +288,7 @@
     }
 
     function showBookInfo(book){
-        console.log("Book # " + (newBooksArr.indexOf(book) + 1) + "\n" + book.getBookInfo);
+        console.log(book.getBookInfo);
     }
 
     let newTitleList = ["New Book 1", "My Book is the Best. Part 2", "Dime a... You Know!"];
@@ -297,10 +297,17 @@
     let newBooksArr = [];
     for(let i = 0; i < newTitleList.length && i < newAuthorList.length; i++){
         let j = 0
-        newBooksArr.push(createBook(newTitleList[i], new Author(newAuthorList[i][j], newAuthorList[i][j+1])))
+        newBooksArr.push(createBook(newTitleList[i], new Author(newAuthorList[i][j], newAuthorList[i][j+1])));
+        books.push(createBook(newTitleList[i], new Author(newAuthorList[i][j], newAuthorList[i][j+1])));
     }
 
-    newBooksArr.forEach(function (book){
+    newBooksArr.forEach(function (book, index){
+        console.log("Book # " + (index + 1));
+        showBookInfo(book);
+    });
+
+    books.forEach(function (book, index){
+        console.log("Book # " + (index + 1));
         showBookInfo(book);
     });
 

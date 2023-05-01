@@ -8,13 +8,50 @@
 <div>
 	<main id="register">
 		<form method="POST" action="https://request-inspector.glitch.me/">
-			<label for="email">Email: </label>
-			<input type="email" id="email" name="email" placeholder="john.doe@gmail.com">
+			<section id="user-info">
+				<div id="user-info-email">
+					<label for="email">Email: </label>
+					<input type="email" id="email" name="email" placeholder="john.doe@gmail.com">
+				</div>
+				
+				<div id="user-info-pass">
+					<label for="password">Password: </label>
+					<input type="password" id="password" name="password" placeholder="JohnDo379@!">
+				</div>
+			</section>
 			
-			<label for="password">Password: </label>
-			<input type="password" id="password" name="password" placeholder="JohnDo379@!">
+			<section id="user-bio">
+				<label for="bio">Bio</label>
+				<textarea name="bio" id="bio" cols="30" rows="10" placeholder="Enter a bio about yourself."></textarea>
+			</section>
 			
-			<button>Register</button>
+			<section id="found-us">
+				<h4>How did you hear about us?</h4>
+				<input id="bb" type="checkbox" name="about-us" value="billboard">
+				<label for="bb">Billboard</label><br>
+				<input id="ra" type="checkbox" name="about-us" value="radio-ad">
+				<label for="ra">Radio Advertisement</label><br>
+				<input id="ia" type="checkbox" name="about-us" value="internet-ad">
+				<label for="ia">Internet Advertisement</label><br>
+				<input id="other" type="checkbox" name="about-us" value="other">
+				<label for="other">Other</label><br>
+			</section>
+			
+			<section id="brows">
+				<label for="browser-type">What browser are you on right now?</label>
+				<select name="browser-type" id="browser-type">
+					<option value="edge">Microsoft Edge</option>
+					<option value="firefox">Firefox</option>
+					<option value="explorer">Internet Explorer</option>
+					<option value="chrome">Google Chrome</option>
+					<option value="safari">Safari</option>
+				</select>
+			</section>
+			
+			
+			<section id="submit-button">
+				<button>Register</button>
+			</section>
 		</form>
 	</main>
 </div>

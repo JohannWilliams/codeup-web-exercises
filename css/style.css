@@ -20,3 +20,16 @@ h1.fancy-header {
 ul{
     list-style-image: url("../images/bullet-train-list.png");
 }
+
+#pricing table{
+    margin: auto;
+    background-color: #bd9897;
+    opacity: 75%;
+    font-size: 2em;
+    width: 50%;
+    text-align: center;
+}
+
+#pricing>h2.fancy-header{
+    text-align: center;
+}

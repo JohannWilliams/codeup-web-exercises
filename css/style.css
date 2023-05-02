@@ -6,6 +6,7 @@ body{
     background-size: cover;
     background-position: right;
     font-family: 'Poppins', sans-serif;
+    margin-bottom: 5rem;
 }
 
 h1.fancy-header {
@@ -32,4 +33,28 @@ ul{
 
 #pricing>h2.fancy-header{
     text-align: center;
+}
+
+footer{
+    clear: both;
+}
+
+a{
+    float: right;
+}
+
+a:link{
+    color: #8dcdce;
+}
+
+a:visited{
+    color: #283839;
+}
+
+a:hover{
+    color: #f0e7d4;
+}
+
+a:active{
+    color: #de0085;
 }

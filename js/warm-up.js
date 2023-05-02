@@ -61,13 +61,20 @@
     function countEs(str) {
         let eCount = false;
         if(typeof str === "string"){
-            eCount = 0;
+            // eCount = 0;
             str = str.toLowerCase();
-            for(let i = 0; i < str.length; i++){
-                if(str[i] === "e"){
-                    eCount++;
-                }
-            }
+
+            // take the string and split it at each instance
+            // of e. returns an array with length 1 greater
+            // than the count of e's.
+            eCount = str.split("e").length - 1;
+
+            // search each index of str for e and increment eCount;
+            // for(let i = 0; i < str.length; i++){
+            //     if(str[i] === "e"){
+            //         eCount++;
+            //     }
+            // }
         }
         return eCount;
     }

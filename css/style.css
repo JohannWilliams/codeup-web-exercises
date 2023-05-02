@@ -7,6 +7,8 @@ body{
     background-position: right;
     font-family: 'Poppins', sans-serif;
     margin-bottom: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
 h1.fancy-header {
@@ -20,6 +22,14 @@ h1.fancy-header {
 
 ul{
     list-style-image: url("../images/bullet-train-list.png");
+}
+
+#vision-images>h2.fancy-header{
+    text-align: center;
+}
+
+#vision-images>div#top-images, #vision-images>div#bottom-images{
+    margin: 2em 2em;
 }
 
 #pricing table{

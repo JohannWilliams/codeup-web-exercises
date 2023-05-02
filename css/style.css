@@ -1,5 +1,10 @@
 body{
     background-color: #1f4b6d;
+    background-image: url("../images/bg-sky.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
 }
 
 h1.fancy-header {

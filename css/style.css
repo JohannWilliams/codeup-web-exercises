@@ -1,4 +1,12 @@
-.fancy-header {
-    color: purple;
+body{
+    background-color: #1f4b6d;
+}
+
+h1.fancy-header {
+    text-align: center;
+}
+
+.fancy-header{
+    color: #968573;
     text-decoration: underline;
 }

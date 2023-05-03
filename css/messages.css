@@ -1,7 +1,50 @@
+:root{
+    --bg-success: #cff3da;
+    --text-success: #01632b;
+    --bg-info: #cedfff;
+    --text-info: #2a1e89;
+    --bg-warning: #fcfbc9;
+    --text-warning: #9a882d;
+    --bg-error: #fbd3d7;
+    --text-error: #811830;
+    --my-boarder: 1px solid #d2d3d5;
+    --radius: 5px;
+    --message-margins: 0.5em auto;
+    --message-padding: 0.5em;
+    --message-width: 98%;
+    --full-width: 100%;
+    --no-padding-or-margin: 0;
+}
+
 body, html {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+    height: var(--full-width);
+    width: var(--full-width);
+    padding: var(--no-padding-or-margin);
+    margin: var(--no-padding-or-margin);
     font-family: Arial, Ubuntu, sans-serif;
+}
+
+.message{
+    border: var(--my-boarder);
+    border-radius: var(--radius);
+    width: var(--message-width);
+    margin: var(--message-margins);
+    padding: var(--message-padding);
+}
+
+.message-info{
+    color: var(--text-info);
+    background: var(--bg-info);
+}
+.message-success{
+    color: var(--text-success);
+    background: var(--bg-success);
+}
+.message-warning{
+    color: var(--text-warning);
+    background: var(--bg-warning);
+}
+.message-error{
+    color: var(--text-error);
+    background: var(--bg-error);
 }

@@ -1,19 +1,28 @@
 :root{
+    /* standard variables */
+    --full-width: 100%;
+    --no-padding-or-margin: 0;
+
+    /* background colors */
     --bg-success: #cff3da;
-    --text-success: #01632b;
     --bg-info: #cedfff;
-    --text-info: #2a1e89;
     --bg-warning: #fcfbc9;
-    --text-warning: #9a882d;
     --bg-error: #fbd3d7;
+
+    /* text colors */
+    --text-success: #01632b;
+    --text-info: #2a1e89;
+    --text-warning: #9a882d;
     --text-error: #811830;
+
+    /* boarder variables */
     --my-boarder: 1px solid #d2d3d5;
     --radius: 5px;
+
+    /* message box variables */
     --message-margins: 0.5em auto;
     --message-padding: 0.5em;
     --message-width: 98%;
-    --full-width: 100%;
-    --no-padding-or-margin: 0;
 }
 
 body, html {

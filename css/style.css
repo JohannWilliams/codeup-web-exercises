@@ -11,6 +11,10 @@ body{
     margin-right: 5rem;
 }
 
+.imgs{
+    margin: 0.25em;
+}
+
 h1.fancy-header {
     text-align: center;
 }

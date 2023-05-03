@@ -22,8 +22,11 @@ fieldset {
     -moz-box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
     /* There must be 1em between the content and the border of this element */
+    padding: 1em;
     /* It should have no border */
+    border: 0px;
     /* Its background should be white */
+    background: white;
 }
 
 .width-80 {

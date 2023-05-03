@@ -28,8 +28,13 @@ ul{
     text-align: center;
 }
 
-#vision-images>div#top-images, #vision-images>div#bottom-images{
+#vision-images{
     margin: 2em 2em;
+}
+
+#top-images, #bottom-images{
+    display: flex;
+    justify-content: center;
 }
 
 #pricing table{

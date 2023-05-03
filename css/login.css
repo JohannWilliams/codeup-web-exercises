@@ -38,15 +38,20 @@ fieldset {
 
 .form-group {
     /* This element must use 100% of the width */
+    width: 100%;
     /* It should have a separation of .5em from elements on top of it and below it*/
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 .form-label {
     /* The text of a label must be bold */
+    font-weight: bold;
 }
 
 .btn-block {
     /* This element should use 100% of the width */
+    width: 100%;
 }
 
 .btn {

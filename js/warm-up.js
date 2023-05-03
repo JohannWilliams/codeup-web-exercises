@@ -78,13 +78,34 @@
         }
         return eCount;
     }
+    //
+    // console.log(countEs("Ease")); // returns 2;
+    // console.log(countEs("teleconference")); // returns 5;
+    // console.log(countEs("TOM")); // returns 0;
+    // console.log(countEs(true)); // returns false;
+    // console.log(countEs(['e', 'E'])); // returns false;
+    // console.log(countEs()); // returns false;
 
-    console.log(countEs("Ease")); // returns 2;
-    console.log(countEs("teleconference")); // returns 5;
-    console.log(countEs("TOM")); // returns 0;
-    console.log(countEs(true)); // returns false;
-    console.log(countEs(['e', 'E'])); // returns false;
-    console.log(countEs()); // returns false;
+    /**
+     * Warmup 4 contains "e" case insensitive
+     * return true if string and contains "e" else false.
+     * @param str
+     * @returns {boolean}
+     */
+    function containsE(str){
+        let contains = false;
+        if(typeof str === "string"){
+            contains = str.toLowerCase().includes("e");
+        }
+        return contains
+    }
 
+    console.log(containsE("Ease")); // returns true;
+    console.log(containsE("teleconference")); // returns true;
+    console.log(containsE("TOME")); // returns true;
+    console.log(containsE("TOM")); // returns false;
+    console.log(containsE(true)); // returns false;
+    console.log(containsE(['e', 'E'])); // returns false;
+    console.log(containsE()); // returns false;
 
 })();

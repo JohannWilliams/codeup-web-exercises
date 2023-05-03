@@ -1,4 +1,4 @@
-(function (){
+(function () {
     "use strict";
 
     /**
@@ -7,7 +7,7 @@
      * @returns {number}
      */
 
-    function returnSeven(){
+    function returnSeven() {
         return 7;
     }
 
@@ -25,13 +25,13 @@
     function findFactors(num) {
         let factorArr = [];
 
-        if(typeof num === "number"){
-            for(let i = 1; i <= num / 2; i++){
-                if(num % i === 0){
+        if (typeof num === "number") {
+            for (let i = 1; i <= num / 2; i++) {
+                if (num % i === 0) {
                     factorArr.push(i);
                 }
             }
-            if(num !== 0) {
+            if (num !== 0) {
                 factorArr.push(num);
             }
         } else {
@@ -60,7 +60,7 @@
      */
     function countEs(str) {
         let eCount = false;
-        if(typeof str === "string"){
+        if (typeof str === "string") {
             // eCount = 0;
             str = str.toLowerCase();
 
@@ -78,6 +78,7 @@
         }
         return eCount;
     }
+
     //
     // console.log(countEs("Ease")); // returns 2;
     // console.log(countEs("teleconference")); // returns 5;
@@ -86,15 +87,18 @@
     // console.log(countEs(['e', 'E'])); // returns false;
     // console.log(countEs()); // returns false;
 
+
+    // Write a function that takes in a string and returns true if the argument contains at least one instance of the letter 'e'. This should be case-insensitive. If the argument is not a string, or if the argument does not contain 'e' it should return false.
+
     /**
      * Warmup 4 contains "e" case insensitive
      * return true if string and contains "e" else false.
      * @param str
      * @returns {boolean}
      */
-    function containsE(str){
+    function containsE(str) {
         let contains = false;
-        if(typeof str === "string"){
+        if (typeof str === "string") {
             contains = str.toLowerCase().includes("e");
         }
         return contains

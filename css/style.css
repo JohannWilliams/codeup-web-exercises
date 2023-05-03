@@ -15,13 +15,25 @@ body{
     margin: 0.25em;
 }
 
+#end{
+    color: #E7E5DF;
+    font-size: 1em;
+}
+
+p{
+    color: #1B1F3B;
+    font-size: 1.5em;
+}
+
 h1.fancy-header {
     text-align: center;
+    font-size: 3em;
 }
 
 .fancy-header{
-    color: #968573;
+    color: #1B1F3B;
     text-decoration: underline;
+    font-size: 2em;
 }
 
 ul{

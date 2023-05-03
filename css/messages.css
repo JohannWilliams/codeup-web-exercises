@@ -1,4 +1,8 @@
 :root{
+
+    /*body variables*/
+    --body-font-fam: Arial, Ubuntu, sans-serif;
+
     /* standard variables */
     --full-width: 100%;
     --no-padding-or-margin: 0;
@@ -30,7 +34,7 @@ body, html {
     width: var(--full-width);
     padding: var(--no-padding-or-margin);
     margin: var(--no-padding-or-margin);
-    font-family: Arial, Ubuntu, sans-serif;
+    font-family: var(--body-font-fam);
 }
 
 .message{

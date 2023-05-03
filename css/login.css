@@ -24,7 +24,7 @@ fieldset {
     /* There must be 1em between the content and the border of this element */
     padding: 1em;
     /* It should have no border */
-    border: 0px;
+    border: 0;
     /* Its background should be white */
     background: white;
 }
@@ -67,9 +67,9 @@ fieldset {
 
 .form-control {
     /* There must be 4px on top of the text and below the text of an input with this class */
-    padding: 4px 0px;
+    padding: 4px 0;
     /* It should have a separation of .5em from elements on top of it and below it */
-    margin: 0.5em 0em;
+    margin: 0.5em 0;
 
     /* You'll need to use the `calc` function to make the width of this element match the width of the button */
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */

@@ -104,6 +104,9 @@ fieldset {
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
     width: var(--input-width);
+
+    /* can also use*/
+    /*box-sizing: border-box;*/
 }
 
 

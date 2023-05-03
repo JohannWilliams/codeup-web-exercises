@@ -12,7 +12,9 @@ body, html {
 
 form {
     /* This form should be separated from other elements by 1em */
+    margin: 1em;
     /* There must be 1em between the content and the border of this element */
+    padding: 1em;
 }
 
 fieldset {

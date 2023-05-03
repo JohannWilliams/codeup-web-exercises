@@ -106,6 +106,7 @@ fieldset {
     width: var(--input-width);
 
     /* can also use*/
+    /*width: 100%*/
     /*box-sizing: border-box;*/
 }
 

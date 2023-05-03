@@ -1,80 +1,109 @@
+:root{
+    /* Shadows */
+    --shadow-value: 10px 10px 5px 0 rgba(0,0,0,0.75);
+
+    /* body */
+    --body-color: #cbffcd;
+    --body-font-fam: Arial, Ubuntu, sans-serif;
+
+    /* standard values */
+    --max-width: 100%;
+    --width-eighty: 80%;
+    --zero: 0;
+    --one-em: 1em;
+    --half-one-em: 0.5em;
+    --bold-text: bold;
+    --color-white: white;
+    --auto-center: var(--zero) auto;
+
+    /* button variables */
+    --btn-padding: 8px;
+    --btn-boarder: 1px solid lightgrey;
+    --btn-bg-color: #0fb784;
+
+    /* form controller variables */
+    --input-width: calc(var(--max-width) - 4px);
+    --form-control-padding: 4px var(--zero);
+    --form-control-margin: 0.5em var(--zero);
+}
+
 * {
-    padding: 0;
-    margin: 0;
+    padding: var(--zero);
+    margin: var(--zero);
 }
 
 body, html {
-    height: 100%;
-    width: 100%;
-    background-color: #cbffcd;
-    font-family: Arial, Ubuntu, sans-serif;
+    height: var(--max-width);
+    width: var(--max-width);
+    background-color: var(--body-color);
+    font-family: var(--body-font-fam);
 }
 
 form {
     /* This form should be separated from other elements by 1em */
-    margin: 1em;
+    margin: var(--one-em);
     /* There must be 1em between the content and the border of this element */
-    padding: 1em;
+    padding: var(--one-em);
 }
 
 fieldset {
-    -webkit-box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.75);
+    -webkit-box-shadow: var(--shadow-value);
+    -moz-box-shadow: var(--shadow-value);
+    box-shadow: var(--shadow-value);
     /* There must be 1em between the content and the border of this element */
-    padding: 1em;
+    padding: var(--one-em);
     /* It should have no border */
-    border: 0;
+    border: var(--zero);
     /* Its background should be white */
-    background: white;
+    background: var(--color-white);
 }
 
 .width-80 {
     /* The element with this class should be 80% of the width and it must be centered */
-    width: 80%;
+    width: var(--width-eighty);
     /* Read how to center elements with margin here: http://learnlayout.com/margin-auto.html*/
-    margin: 0 auto;
+    margin: var(--auto-center);
 }
 
 .form-group {
     /* This element must use 100% of the width */
-    width: 100%;
+    width: var(--max-width);
     /* It should have a separation of .5em from elements on top of it and below it*/
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: var(--half-one-em);
+    margin-bottom: var(--half-one-em);
 }
 
 .form-label {
     /* The text of a label must be bold */
-    font-weight: bold;
+    font-weight: var(--bold-text);
 }
 
 .btn-block {
     /* This element should use 100% of the width */
-    width: 100%;
+    width: var(--max-width);
 }
 
 .btn {
     /* There must be a separation of 8px between the text and the border of this element */
-    padding: 8px;
+    padding: var(--btn-padding);
     /* The text color of this element should be white and bold */
-    font-weight: bold;
-    color: white;
+    font-weight: var(--bold-text);
+    color: var(--color-white);
     /* The border of this element should be 1px, and its color should be light grey */
-    border: 1px solid lightgrey;
-    background-color: #0fb784;
+    border: var(--btn-boarder);
+    background-color: var(--btn-bg-color);
 }
 
 .form-control {
     /* There must be 4px on top of the text and below the text of an input with this class */
-    padding: 4px 0;
+    padding: var(--form-control-padding);
     /* It should have a separation of .5em from elements on top of it and below it */
-    margin: 0.5em 0;
+    margin: var(--form-control-margin);
 
     /* You'll need to use the `calc` function to make the width of this element match the width of the button */
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
-    width: calc(100% - 4px);
+    width: var(--input-width);
 }
 
 

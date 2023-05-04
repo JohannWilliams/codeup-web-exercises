@@ -44,7 +44,7 @@ a {
 
 .nav-item{
     padding: 1.5em;
-    float: left;
+    display: inline-block;
 }
 
 .nav-link {

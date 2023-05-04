@@ -76,6 +76,15 @@ a {
     float: left;
 }
 
+.profile-items{
+    padding: 0;
+    list-style: none;
+}
+
+.profile-entry{
+    margin: 0.5em;
+}
+
 .timeline{
     width: calc(50% - 16px);
     margin: 0 0.5em;

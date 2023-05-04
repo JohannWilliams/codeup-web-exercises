@@ -104,12 +104,42 @@
         return contains
     }
 
-    console.log(containsE("Ease")); // returns true;
-    console.log(containsE("teleconference")); // returns true;
-    console.log(containsE("TOME")); // returns true;
-    console.log(containsE("TOM")); // returns false;
-    console.log(containsE(true)); // returns false;
-    console.log(containsE(['e', 'E'])); // returns false;
-    console.log(containsE()); // returns false;
+    // console.log(containsE("Ease")); // returns true;
+    // console.log(containsE("teleconference")); // returns true;
+    // console.log(containsE("TOME")); // returns true;
+    // console.log(containsE("TOM")); // returns false;
+    // console.log(containsE(true)); // returns false;
+    // console.log(containsE(['e', 'E'])); // returns false;
+    // console.log(containsE()); // returns false;
+
+
+    // Write a function named fizzBuzz that prints to the console the number 1 - 100. If the number is divisible by 3 print fizz instead of the number. If the number is divisible by 5 print buzz. If the number is divisible by both 3 and 5 print fizzBuzz
+
+    /**
+     * Warmup 4 prints numbers 1-100
+     * if number / 3 has a remainder of 0 print fizz
+     * if number / 5 has a remainder of 0 print Buzz
+     * if both reminders are 0 print fizzBuzz
+     */
+    function fizzBuzz(){
+        let output;
+        for(let i = 1; i <= 100; i++){
+            if(i % 3 === 0){
+                output = "fizz";
+                if(i % 5 === 0){
+                    output += "Buzz";
+                }
+            } else if(i % 5 === 0){
+                output = "Buzz";
+            } else {
+                output = i;
+            }
+            console.log(output);
+        }
+
+
+    }
+
+    fizzBuzz();
 
 })();

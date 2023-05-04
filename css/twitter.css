@@ -71,7 +71,7 @@ a {
 }
 
 .profile-details{
-    width: calc(25% - 16px);
+    width: calc(25% - 1em);
     margin: 0 0.5em;
     float: left;
 }
@@ -86,13 +86,13 @@ a {
 }
 
 .timeline{
-    width: calc(50% - 16px);
+    width: calc(50% - 1em);
     margin: 0 0.5em;
     float: left;
 }
 
 .who-to-follow{
-    width: calc(25% - 16px);
+    width: calc(25% - 1em);
     margin: 0 0.5em;
     float: left;
 }

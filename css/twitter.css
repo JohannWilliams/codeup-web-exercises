@@ -25,6 +25,11 @@ header {
 a {
     color: var(--link-color);
 }
+
+.container{
+    margin-top: 2em;
+}
+
 .top-nav {
     background: var(--light-bg);
     width: 100%;
@@ -63,6 +68,24 @@ a {
 .profile-image{
     position: absolute;
     top: 250px;
+}
+
+.profile-details{
+    width: calc(25% - 16px);
+    margin: 0 0.5em;
+    float: left;
+}
+
+.timeline{
+    width: calc(50% - 16px);
+    margin: 0 0.5em;
+    float: left;
+}
+
+.who-to-follow{
+    width: calc(25% - 16px);
+    margin: 0 0.5em;
+    float: left;
 }
 
 .btn {

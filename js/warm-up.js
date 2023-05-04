@@ -116,7 +116,7 @@
     // Write a function named fizzBuzz that prints to the console the number 1 - 100. If the number is divisible by 3 print fizz instead of the number. If the number is divisible by 5 print buzz. If the number is divisible by both 3 and 5 print fizzBuzz
 
     /**
-     * Warmup 4 prints numbers 1-100
+     * Warmup 5 prints numbers 1-100
      * if number / 3 has a remainder of 0 print fizz
      * if number / 5 has a remainder of 0 print Buzz
      * if both reminders are 0 print fizzBuzz

@@ -8,3 +8,36 @@ body{
     background: lightskyblue;
     font-family: Chalkboard, sans-serif;
 }
+
+h1 {
+    text-align: center;
+}
+
+h2, h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.border {
+    border: 2px solid black;
+}
+
+.card {
+    width: 400px;
+    height: 800px;
+    background: white;
+    padding: 1em;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+section {
+    display: flex;
+}

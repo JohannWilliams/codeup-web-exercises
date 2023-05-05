@@ -5,7 +5,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: lightskyblue;
+    background-color: lightskyblue;
     font-family: Chalkboard, sans-serif;
 }
 
@@ -30,7 +30,7 @@ h2, h3 {
 .card {
     width: 400px;
     height: 800px;
-    background: white;
+    background-color: white;
     padding: 1em;
     margin: 0 auto;
     display: flex;
@@ -40,4 +40,41 @@ h2, h3 {
 
 section {
     display: flex;
+}
+
+.green-section{
+    height: 3em;
+    background-color: lightgreen;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.green-box {
+    background-color: green;
+    height: 1em;
+    width: 2em;
+}
+
+.raised{
+    align-self: flex-start;
+}
+
+.purple-box{
+    height: 1em;
+    width: 3em;
+    background-color: fuchsia;
+}
+
+.grow-long{
+    flex-grow: 4;
+}
+
+.grow-med{
+    flex-grow: 2;
+}
+
+.blue-box {
+    width: 100%;
+    background: blue;
+    height: 10em;
 }

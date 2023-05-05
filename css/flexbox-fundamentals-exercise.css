@@ -34,10 +34,14 @@ h2, h3 {
     padding: 1em;
     margin: 0 auto;
     /* enter needed declarations here */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 section {
     /* enter needed declarations here */
+    display: flex;
 }
 
 section:nth-of-type(1) {

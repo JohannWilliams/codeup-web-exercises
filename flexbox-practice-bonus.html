@@ -3,19 +3,41 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Flexbox Practice Bonus</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 	<link rel="stylesheet" href="css/flexbox-practice-bonus.css">
 </head>
 <body>
 <footer class="container">
 	<section class="top small-grow">
-		<h1>CONTACT US</h1>
+		<h1 class="text-white">CONTACT US</h1>
 	</section>
-	<section class="bottom large-grow">
+	<section class="bottom large-grow container">
 		<section class="left contact-info">
-		
+			<section class="left-header">
+				<h2 class="text-white">Getting in touch is easy!</h2>
+			</section>
+			<section class="number-address left-top">
+				<p>t: +123 456 789</p>
+				<p>1234 Main Street Anywhere</p>
+			</section>
+			<section class="email-support left-middle">
+				<p>General: sayhi@baamboostudio.com</p>
+				<p>General: support@baamboostudio.com</p>
+			</section>
+			<section class="contact-icons left-bottom">
+				<a href=""><i class="fa-brands fa-facebook icon-gray"></i></a>
+				<a href=""><i class="fa-brands fa-twitter icon-gray"></i></a>
+				<a href=""><i class="fa-brands fa-tiktok icon-gray"></i></a>
+			</section>
 		</section>
-		<section class="right submit-comment">
-		
+		<section class="right submit-comment container">
+			<form action="" method="post">
+				<input class="bg-gray no-border text-white" type="text" id="name" name="name" placeholder="Name">
+				<input class="bg-gray no-border text-white" type="email" id="email" name="email" placeholder="Email">
+				<input class="bg-gray no-border text-white" type="text" id="phone-number" name="phone-number" placeholder="Telephone">
+				<textarea class="bg-gray no-border text-white" name="comment" id="comment" placeholder="Comment"></textarea>
+				<button class="btn bg-orange text-white no-border">SUBMIT</button>
+			</form>
 		</section>
 	</section>
 </footer>

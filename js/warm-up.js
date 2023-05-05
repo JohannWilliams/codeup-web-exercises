@@ -161,7 +161,8 @@
     do{
         console.log(x);
         // x = x**2;
-        x *= x;
+        // x *= x;
+        x = Math.pow(x, 2);
     } while(x < 1000000);
 
 })();

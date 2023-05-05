@@ -140,6 +140,27 @@
 
     }
 
-    fizzBuzz();
+    // fizzBuzz();
+
+
+
+    // Warmup 6:
+    // Create a do-while loop that starts at 2, and displays the number squared on each line while the number is less than 1,000,000. Output should equal:
+    // 2
+    // 4
+    // 16
+    // 256
+    // 65536
+
+    /**
+     * Warmup 6
+     * log a number for each time it is squared
+     * until that number gets to 1M.
+     */
+    let x = 2;
+    do{
+        console.log(x);
+        x = x**2;
+    } while(x < 1000000);
 
 })();

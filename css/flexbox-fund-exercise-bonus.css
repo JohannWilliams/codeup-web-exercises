@@ -102,3 +102,33 @@ section {
 .mid-margin-one-em{
     margin: 0 1em;
 }
+
+.yellow-box{
+    height: 2em;
+    width: 2em;
+    background-color: yellow;
+}
+
+.yellow-section{
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.gray-section{
+    background: coral;
+    height: 14em;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gray-box{
+    width: 3em;
+    height: 3em;
+    background-color: gray;
+}
+
+.tall-gray{
+    height: 4em;
+}

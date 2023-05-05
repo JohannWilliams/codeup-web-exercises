@@ -160,7 +160,8 @@
     let x = 2;
     do{
         console.log(x);
-        x = x**2;
+        // x = x**2;
+        x *= x;
     } while(x < 1000000);
 
 })();

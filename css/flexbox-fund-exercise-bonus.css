@@ -78,3 +78,27 @@ section {
     background: blue;
     height: 10em;
 }
+
+.orange-circle{
+    height: 2em;
+    width: 2em;
+    border-radius: 1em;
+    margin: 0.5em;
+    background-color: orange;
+}
+
+.orange-section{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brown-box {
+    height: 5em;
+    width: 5em;
+    background: brown;
+    flex-grow: 2;
+}
+
+.mid-margin-one-em{
+    margin: 0 1em;
+}

@@ -7,6 +7,21 @@ body{
     margin: 0;
 }
 
+footer{
+    background-image: url("../images/black-blured-stars-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 4em;
+}
+main{
+    height: 50em;
+}
+
+main>h1{
+    text-align: center;
+}
+
 .container{
     display: flex;
     margin: 0;
@@ -96,6 +111,9 @@ textarea{
 
 .icon-gray{
     color: darkgray;
+}
+.center-icon{
+    padding: 0 0.5em;
 }
 
 p{

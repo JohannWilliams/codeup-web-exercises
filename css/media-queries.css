@@ -1,7 +1,6 @@
 :root{
     --bg-color-skip-content: #CFF;
 }
-
 .alert-info{
     width: 95%;
     margin: 1em auto 0;
@@ -10,29 +9,23 @@
     text-align: center;
     padding: 0.75em 0;
 }
-
 h1{
     font-size: 3em;
     text-align: center;
     margin: .25em 0 .75em;
 }
-
-/*#CCC*/
-
 .nav-links{
     list-style: none;
     padding-left: 0;
     width: 95%;
     margin: 1em auto;
 }
-
 li{
     background-color: #CCC;
     text-align: center;
     margin: .75em 0;
     padding: 1em 0;
 }
-
 li:nth-child(1){
     padding-right: 50%;
 }
@@ -45,25 +38,20 @@ li:nth-child(3){
 li:nth-child(4){
     padding-left: 50%;
 }
-
 .alert-info>a{
     text-decoration: none;
     color: black;
 }
-
 .header-img{
     width: 95%;
     margin: 0 auto;
 }
-
 img{
     width: 100%;
 }
-
 .main h2, .sub-section h2{
     margin-bottom: .25em;
 }
-
 .main p, .sub-section p{
     margin-top: .25em;
     margin-bottom: 2.5em;
@@ -135,7 +123,9 @@ img{
     .main h2, .sub-section h2{
         margin: 2em 0;
     }
-
+    .main p {
+        margin-right: 10%;
+    }
     .main p, .sub-section p{
         margin-top: .25em;
         margin-bottom: 2.5em;

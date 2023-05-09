@@ -1,0 +1,11 @@
+:root{
+    --bg-pizza: url("/images/pizza.png");
+    --bg-size: cover;
+    --bg-height: 346px;
+}
+
+.jumbotron{
+    background-image: var(--bg-pizza);
+    background-size: var(--bg-size);
+    height: var(--bg-height);
+}

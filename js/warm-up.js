@@ -218,9 +218,68 @@
         }
         return strObj;
     }
+    //
+    // console.log(explainString("cheese")); // returns {string: "cheese", numberOfEs: 3, isEvenLength: true}
+    // console.log(explainString("dog")); // returns {string: "dog", numberOfEs: 0, isEvenLength: false}
 
-    console.log(explainString("cheese")); // returns {string: "cheese", numberOfEs: 3, isEvenLength: true}
-    console.log(explainString("dog")); // returns {string: "dog", numberOfEs: 0, isEvenLength: false}
 
+
+
+
+    // Write a function that takes in an array of objects and returns an array containing all of the names from the original array.
+
+    /**
+     * object for use in warmup 9 extractNames
+     * @type {[{fur: string[], gender: string, name: string, dateOfBirth: string, heightInMM: number},{fur: string[], gender: string, name: string, dateOfBirth: string, heightInMM: number},{fur: string[], gender: string, name: string, dateOfBirth: string, heightInMM: number},{fur: string[], gender: string, name: string, dateOfBirth: string, heightInMM: number},{fur: string[], gender: string, name: string, dateOfBirth: string, heightInMM: number}]}
+     */
+    const hamsters = [
+        {
+            name: "Hamtaro",
+            heightInMM: 86,
+            fur: ['orange', 'white'],
+            gender: "male",
+            dateOfBirth: "August 6"
+        } , {
+            name: "Bijou",
+            heightInMM: 75,
+            fur: ['white'],
+            gender: "female",
+            dateOfBirth: "July 10"
+        } , {
+            name: "Oxnard",
+            heightInMM: 100,
+            fur: ['grey', 'white'],
+            gender: "male",
+            dateOfBirth: "May 3"
+        } , {
+            name: "Boss",
+            heightInMM: 120,
+            fur: ['brown', 'white'],
+            gender: "male",
+            dateOfBirth: "September 21"
+        } , {
+            name: "Snoozer",
+            heightInMM: 85,
+            fur: ['brown', 'white', "pink"],
+            gender: "male",
+            dateOfBirth: "January 14"
+        }
+    ];
+
+    /**
+     * Warmup 9
+     * from array of objects return an array with just their names.
+     * @param objArr
+     * @returns {*[]}
+     */
+    function extractNames(objArr){
+        let names = [];
+        objArr.forEach(function (obj){
+            names.push(obj.name);
+        });
+        return names;
+    }
+
+    console.log(extractNames(hamsters)); // returns ["Hamtaro", "Bijou", "Oxnard", "Boss", "Snoozer"];
 
 })();

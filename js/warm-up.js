@@ -280,8 +280,36 @@
         return names;
     }
 
-    console.log(extractNames(hamsters)); // returns ["Hamtaro", "Bijou", "Oxnard", "Boss", "Snoozer"];
+    // console.log(extractNames(hamsters)); // returns ["Hamtaro", "Bijou", "Oxnard", "Boss", "Snoozer"];
 
 
+    /**
+     * Warup 10
+     * Take in an array of objects and return the
+     * object with the highest heightInMM.
+     * @param objArr
+     * @returns {boolean}
+     */
+    function getHighestMMObj(objArr){
+        let returnObj = null;
+
+        objArr.forEach(function (obj){
+            if(returnObj === null){
+                returnObj = obj;
+            } else {
+                if(returnObj.heightInMM < obj.heightInMM){
+                    returnObj = obj;
+                }
+            }
+        })
+
+        if(returnObj === null){
+            returnObj = false;
+        }
+
+        return returnObj;
+    }
+
+    console.log(getHighestMMObj(hamsters));
 
 })();

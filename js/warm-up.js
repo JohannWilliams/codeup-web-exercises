@@ -282,4 +282,6 @@
 
     console.log(extractNames(hamsters)); // returns ["Hamtaro", "Bijou", "Oxnard", "Boss", "Snoozer"];
 
+
+
 })();

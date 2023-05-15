@@ -290,7 +290,7 @@
      * @param objArr
      * @returns {boolean}
      */
-    function getHighestMMObj(objArr){
+    function getTallest(objArr){
         let returnObj = null;
 
         objArr.forEach(function (obj){
@@ -310,6 +310,6 @@
         return returnObj;
     }
 
-    console.log(getHighestMMObj(hamsters));
+    console.log(getTallest(hamsters));
 
 })();

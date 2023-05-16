@@ -42,10 +42,15 @@
 		subHeader.setAttribute("style", "color: blue");
 		
 		// TODO: Uncomment the next line and get all list items
-		// var listItems = ;
+		let listItems = document.getElementsByTagName("li");
 		
 		// TODO: Set text color on every other list item to grey
 		// TODO: Set text color of li with dbid = 1 to blue
+		for(let i = 0; i < listItems.length; i++){
+			if(i % 2 !== 0){
+				listItems[i].setAttribute("style", "color: grey");
+			}
+		}
 		
 		// TODO: Uncomment the next line and get all elements with class name sub-paragraph
 		// var subParagraphs = ;

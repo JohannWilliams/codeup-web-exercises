@@ -310,6 +310,32 @@
         return returnObj;
     }
 
-    console.log(getTallest(hamsters));
+    // console.log(getTallest(hamsters));
+
+
+
+    // Write a function that takes in an array of objects and returns an array of the objects from the array that only have one fur color.
+
+    /**
+     * Warmup 11
+     * take in array of objects and returns an array
+     * of objects with only one fur.
+     * fur [] length of one.
+     * @param objArr
+     * @returns {*[]}
+     */
+    function singleFurColor(objArr){
+        let arr = [];
+
+        objArr.forEach(function(obj){
+            if(obj.fur.length === 1){
+                arr.push(obj);
+            }
+        });
+
+        return arr;
+    }
+
+    console.log(singleFurColor(hamsters)); // returns [{name: "Bijou", heightInMM: 75, fur: ['white'], gender: "female", dateOfBirth: "July 10"}];
 
 })();

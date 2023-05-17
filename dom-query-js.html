@@ -26,10 +26,10 @@
 	culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
-<button id="btn1">Change Main Heading</button>
-<button id="btn2">Change Subheading Color</button>
-<button id="btn3">Update List Item Colors</button>
-<button id="btn4">Complete The Mission</button>
+<button id="updateMainBtn">Change Main Heading</button>
+<button id="updateSubBtn">Change Subheading Color</button>
+<button id="updateListBtn">Update List Item Colors</button>
+<button id="completeMissionBtn">Complete The Mission</button>
 
 <script>
 	(function() {
@@ -73,8 +73,11 @@
 			subParagraphs[0].innerHTML = "Mission Accomplished!";
 		}
 		
-		let mainHeaderBtn = document.getElementById("btn1");
+		let mainHeaderBtn = document.getElementById("updateMainBtn");
 		mainHeaderBtn.addEventListener("click", updateMainHeading);
+		
+		let subHeaderBtn = document.getElementById("updateSubBtn");
+		subHeaderBtn.addEventListener("click", updateSubHeading);
 		
 	})();
 </script>

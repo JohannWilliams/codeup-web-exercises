@@ -40,6 +40,7 @@
 			
 			// TODO: Set inner html of mainHeader to "JavaScript is Cool"
 			mainHeader.innerHTML = "JavaScript is Cool"
+			mainHeaderBtn.removeEventListener("click", updateMainHeading);
 		}
 		
 		function updateSubHeading() {
@@ -48,11 +49,13 @@
 			
 			// TODO: Set the text color of subHeader to blue
 			subHeader.setAttribute("style", "color: blue");
+			subHeaderBtn.removeEventListener("click", updateSubHeading);
 		}
-		// TODO: Uncomment the next line and get all list items
-		let listItems = document.getElementsByTagName("li");
 		
 		function updateListItems() {
+			// TODO: Uncomment the next line and get all list items
+			let listItems = document.getElementsByTagName("li");
+			
 			// TODO: Set text color on every other list item to grey
 			// TODO: Set text color of li with dbid = 1 to blue
 			for (let i = 0; i < listItems.length; i++) {
@@ -63,6 +66,9 @@
 					listItems[i].setAttribute("style", "color: blue");
 				}
 			}
+			
+			
+			listBtn.removeEventListener("click", updateListItems);
 		}
 		
 		function completeMission() {
@@ -71,6 +77,8 @@
 			
 			// TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
 			subParagraphs[0].innerHTML = "Mission Accomplished!";
+			
+			completeMissionBtn.removeEventListener("click", completeMission);
 		}
 		
 		let mainHeaderBtn = document.getElementById("updateMainBtn");

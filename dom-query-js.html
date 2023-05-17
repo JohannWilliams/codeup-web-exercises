@@ -34,37 +34,47 @@
 <script>
 	(function() {
 		"use strict";
-		// TODO: Uncomment next line and get the main header element by id
-		let mainHeader = document.getElementById("main-header");
+		function updateMainHeading() {
+			// TODO: Uncomment next line and get the main header element by id
+			let mainHeader = document.getElementById("main-header");
+			
+			// TODO: Set inner html of mainHeader to "JavaScript is Cool"
+			mainHeader.innerHTML = "JavaScript is Cool"
+		}
 		
-		// TODO: Set inner html of mainHeader to "JavaScript is Cool"
-		mainHeader.innerHTML = "JavaScript is Cool"
-		
-		// TODO: Uncomment the next line and get the sub header element by id
-		let subHeader = document.getElementById("sub-header");
-		
-		// TODO: Set the text color of subHeader to blue
-		subHeader.setAttribute("style", "color: blue");
-		
+		function updateSubHeading() {
+			// TODO: Uncomment the next line and get the sub header element by id
+			let subHeader = document.getElementById("sub-header");
+			
+			// TODO: Set the text color of subHeader to blue
+			subHeader.setAttribute("style", "color: blue");
+		}
 		// TODO: Uncomment the next line and get all list items
 		let listItems = document.getElementsByTagName("li");
 		
-		// TODO: Set text color on every other list item to grey
-		// TODO: Set text color of li with dbid = 1 to blue
-		for(let i = 0; i < listItems.length; i++){
-			if(i % 2 !== 0){
-				listItems[i].setAttribute("style", "color: grey");
-			}
-			if(listItems[i].getAttribute("data-dbid") === "1"){
-				listItems[i].setAttribute("style", "color: blue");
+		function updateListItems() {
+			// TODO: Set text color on every other list item to grey
+			// TODO: Set text color of li with dbid = 1 to blue
+			for (let i = 0; i < listItems.length; i++) {
+				if (i % 2 !== 0) {
+					listItems[i].setAttribute("style", "color: grey");
+				}
+				if (listItems[i].getAttribute("data-dbid") === "1") {
+					listItems[i].setAttribute("style", "color: blue");
+				}
 			}
 		}
 		
-		// TODO: Uncomment the next line and get all elements with class name sub-paragraph
-		let subParagraphs = document.getElementsByClassName("sub-paragraph");
+		function completeMission() {
+			// TODO: Uncomment the next line and get all elements with class name sub-paragraph
+			let subParagraphs = document.getElementsByClassName("sub-paragraph");
+			
+			// TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+			subParagraphs[0].innerHTML = "Mission Accomplished!";
+		}
 		
-		// TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-		subParagraphs[0].innerHTML = "Mission Accomplished!";
+		
+		
 	})();
 </script>
 </body>

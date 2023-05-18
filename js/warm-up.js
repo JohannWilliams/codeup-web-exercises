@@ -50,7 +50,7 @@
     // console.log(findFactors({value: 64})); // returns false;
     // console.log(findFactors()); // returns false;
 
-    // Write a function that takes in a string and counts the instances of the letter 'e' within the argument. The count should be case insensitive. If the string does not contain any 'e's it should return 0. If the argument is not a string it should return false.
+    // Write a function that takes in a string and counts the instances of the letter 'e' within the argument. The count should be case-insensitive. If the string does not contain any 'e's it should return 0. If the argument is not a string it should return false.
 
     /**
      * Warmup 3 count "e" in string
@@ -166,7 +166,7 @@
     } while(x < 1000000);
 
 
-    // Write a function that takes in an array of numbers and returns all of the numbers added together (We'll be assuming that only arrays are going to be used with this function).
+    // Write a function that takes in an array of numbers and returns all the numbers added together (We'll be assuming that only arrays are going to be used with this function).
 
     /**
      * Warmup 7
@@ -226,7 +226,7 @@
 
 
 
-    // Write a function that takes in an array of objects and returns an array containing all of the names from the original array.
+    // Write a function that takes in an array of objects and returns an array containing all the names from the original array.
 
     /**
      * object for use in warmup 9 extractNames
@@ -284,7 +284,7 @@
 
 
     /**
-     * Warup 10
+     * Warmup 10
      * Take in an array of objects and return the
      * object with the highest heightInMM.
      * @param objArr
@@ -370,7 +370,7 @@
 
     /**
      * function to assist in warmup 13.
-     * takes in a number and returnes the string
+     * takes in a number and returns the string
      * even or odd depending on if it is even or odd.
      * @param num
      * @returns {string}

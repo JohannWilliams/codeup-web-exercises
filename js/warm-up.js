@@ -363,6 +363,49 @@
         return mostFurColor;
     }
 
-    console.log(mostColorful(hamsters)); // returns {name: "Snoozer", heightInMM: 85, fur: ['brown', 'white', "pink"], gender: "male", dateOfBirth: "January 14"};
+    // console.log(mostColorful(hamsters)); // returns {name: "Snoozer", heightInMM: 85, fur: ['brown', 'white', "pink"], gender: "male", dateOfBirth: "January 14"};
+
+
+    // Write a JavaScript function that takes in a number and returns an object with the following fields: number, which will contain the original number; evenOrOdd, which will contain a string ("even" or "odd") whether the value is even or odd; factors, an array of numbers that are evenly divisible within the number passed; and numberOfDigits, a number counting the number of digits with the number passed.
+
+    /**
+     * function to assist in warmup 13.
+     * takes in a number and returnes the string
+     * even or odd depending on if it is even or odd.
+     * @param num
+     * @returns {string}
+     */
+    function evenOrOdd(num){
+        let str = ""
+        if(isEven(num)){
+            str = "even";
+        } else {
+            str = "odd";
+        }
+        return str;
+    }
+
+    /**
+     * Warmup 13
+     * take in a number and break it down into different components
+     * and place them into an object about that number.
+     * @param num
+     * @returns {{number, evenOrOdd: string, numberOfDigits: number, factors: *[]}}
+     */
+    function describeNumber(num) {
+        let numObj = {
+            number: num,
+            evenOrOdd: evenOrOdd(num),
+            factors: findFactors(num),
+            numberOfDigits: num.toString().length
+        };
+
+        return numObj;
+    }
+
+    console.log(describeNumber(19)); // returns {number: 19, evenOrOdd: "odd", factors: [1,19], numberOfDigits: 2};
+    console.log(describeNumber(2)); // returns {number: 2, evenOrOdd: "even", factors: [1,2], numberOfDigits: 1};
+    console.log(describeNumber(252)); // returns {number: 2, evenOrOdd: "even", factors: [1,2], numberOfDigits: 1};
+
 
 })();

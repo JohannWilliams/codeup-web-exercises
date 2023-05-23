@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript Calculator</title>
+	<link rel="stylesheet" href="css/js-calculator.css">
+</head>
+<body>
+<header class="container">
+	<nav class="left-nav container">
+		<ul>
+			<li class="calculator-type"><a href="">Normal Calculator</a></li>
+			<li class="calculator-type"><a href="">Scientific Calculator</a></li>
+			<li class="calculator-type"><a href="">Graphing Calculator</a></li>
+		</ul>
+		<a class="logo" href="">The Calculator</a>
+		<div class="empty-box"></div>
+	</nav>
+</header>
+<main class="container">
+	<section class="container calculator">
+		<div class="input-div container">
+			<label for="left-input"></label>
+			<input type="text" id="left-input" class="left-input" placeholder="Number 1" disabled>
+			<label for="operand-input"></label>
+			<input type="text" id="operand-input" class="operand-input" placeholder="?" disabled>
+			<label for="right-input"></label>
+			<input type="text" id="right-input" class="right-input" placeholder="Number 2" disabled>
+		</div>
+		<div class="button-div container">
+			<div class="calculator-top-symbols container">
+				<button id="clear" class="btn small-btn clear-btn special-btn">C</button>
+				<button id="switch-sign" class="btn small-btn special-btn">S</button>
+				<button id="percent" class="btn small-btn special-btn">%</button>
+				<button id="divide" class="btn small-btn math-symbol">/</button>
+			</div>
+			<div class="calculator-top-numbers container">
+				<button id="7" class="btn small-btn number">7</button>
+				<button id="8" class="btn small-btn number">8</button>
+				<button id="9" class="btn small-btn number">9</button>
+				<button id="multiply" class="btn small-btn math-symbol">X</button>
+			</div>
+			<div class="calculator-middle-numbers container">
+				<button id="4" class="btn small-btn number">4</button>
+				<button id="5" class="btn small-btn number">5</button>
+				<button id="6" class="btn small-btn number">6</button>
+				<button id="minus" class="btn small-btn math-symbol">-</button>
+			</div>
+			<div class="calculator-bottom-numbers container">
+				<button id="1" class="btn small-btn number">1</button>
+				<button id="2" class="btn small-btn number">2</button>
+				<button id="3" class="btn small-btn number">3</button>
+				<button id="addition" class="btn small-btn math-symbol">+</button>
+			</div>
+			<div class="calculator-bottom-symbols container">
+				<button id="0" class="btn large-btn number">0</button>
+				<button id="dot" class="btn small-btn number">.</button>
+				<button id="equals" class="btn small-btn math-symbol">=</button>
+			</div>
+		</div>
+		<div class="output-div container">
+			<label for="output"></label>
+			<input type="text" id="output" class="output" placeholder="Answer" disabled>
+		</div>
+	</section>
+</main>
+<footer class="container foot">
+
+</footer>
+
+
+<script src="js/js-calculator.js"></script>
+</body>
+</html>

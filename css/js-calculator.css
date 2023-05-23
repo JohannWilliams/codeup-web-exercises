@@ -1,0 +1,131 @@
+:root{
+    --large-grow: 4;
+    --XL-grow: 8;
+    --medium-grow: 2;
+    --small-grow: 1;
+
+    --operator-color: orange;
+    --number-color: lightgray;
+    --special-color: gray;
+    --nav-text-color: white;
+    --bg-nav-color: black;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-div, .output-div, .calculator-top-numbers, .calculator-bottom-numbers, .calculator-bottom-symbols, .calculator-top-symbols, .calculator-middle-numbers{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+}
+
+header.container{
+    background-color: var(--bg-nav-color);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.left-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.center-nav{
+    flex-grow: var(--large-grow);
+}
+.center-nav>li{
+    margin: 0 4em;
+    align-self: center;
+}
+
+
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    display: inline-block;
+}
+
+.logo{
+    flex-grow: var(--large-grow);
+    font-size: 3em;
+    padding: 0.2em 0;
+    margin: auto;
+}
+
+.empty-box{
+    flex-grow: var(--XL-grow);
+    width: 10em;
+}
+
+a{
+    text-decoration: none;
+    padding: 0.5em;
+    color: var(--nav-text-color);
+}
+
+
+.button-div{
+    width: 50%;
+    margin: auto;
+}
+
+.btn{
+    width: 2em;
+    height: 2em;
+    font-size: 2em;
+    background-color: var(--number-color);
+}
+
+.special-btn{
+    background-color: var(--special-color);
+}
+
+.math-symbol{
+    background-color: var(--operator-color);
+}
+
+.large-btn{
+    width: 4em;
+}
+
+
+input {
+    font-size: 2em;
+}
+.left-input, .right-input{
+    width: 5em;
+}
+
+.operand-input {
+    width: 2em;
+}
+
+.output{
+}

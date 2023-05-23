@@ -1,13 +1,13 @@
 "use strict"
 
 $(function(){
-    $("h1").click(
+    $("h1").on("click",
         function (){
             $(this).css("background", "gray");
         }
     );
 
-    $("p").dblclick(
+    $("p").on("dblclick",
         function (){
             $(this).css("font-size", "18px");
         }

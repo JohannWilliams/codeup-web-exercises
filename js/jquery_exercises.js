@@ -1,5 +1,9 @@
 "use strict"
 
 $(function(){
-    $(".codeup").css("border", "1px solid red");
+    $("li").css("font-size", "20px");
+    $("h1").css("background", "yellow");
+    $("p").css("background", "yellow");
+    $("li").css("background", "yellow");
+
 });

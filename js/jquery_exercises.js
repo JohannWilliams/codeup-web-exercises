@@ -1,6 +1,6 @@
 "use strict"
 
 $(function(){
-    let contentOFP1 = $("#p1").html();
+    let contentOFP1 = $("#li1").html();
     alert(contentOFP1);
 });

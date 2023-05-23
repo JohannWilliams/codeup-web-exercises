@@ -1,6 +1,5 @@
 "use strict"
 
 $(function(){
-    let contentOFP1 = $("#li1").html();
-    alert(contentOFP1);
+    $(".codeup").css("border", "1px solid red");
 });

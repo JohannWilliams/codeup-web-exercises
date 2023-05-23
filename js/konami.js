@@ -7,14 +7,12 @@ $(function(){
 
     $(document).keyup(function(event){
         if(event.key.toString() === "Enter"){
-            keyArr.forEach(function(key){
-            });
             if(checkCodeMatch()){
                 playCorrectCodeAudio();
             } else {
                 playInvalidCodeAudio();
             }
-            keyArr = [];
+            resetVariables();
         }else{
             keyArr.push(event.key.toString());
         }
@@ -34,6 +32,11 @@ $(function(){
     }
     function playInvalidCodeAudio(){
         $(".audio-invalid-code").trigger("play");
+    }
+
+    function resetVariables(){
+        keyArr = [];
+        isCode = false;
     }
 
 });

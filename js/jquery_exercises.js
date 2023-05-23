@@ -1,5 +1,6 @@
 "use strict"
 
 $(function(){
-    alert("The DOM has finished loading");
+    let contentOFP1 = $("#p1").html();
+    alert(contentOFP1);
 });

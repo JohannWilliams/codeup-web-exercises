@@ -9,7 +9,11 @@ $(function(){
         if(event.key.toString() === "Enter"){
             keyArr.forEach(function(key){
             });
-            checkCodeMatch();
+            if(checkCodeMatch()){
+                playCorrectCodeAudio();
+            } else {
+                playInvalidCodeAudio();
+            }
             keyArr = [];
         }else{
             keyArr.push(event.key.toString());
@@ -18,19 +22,18 @@ $(function(){
 
     function checkCodeMatch(){
         if(konamiCode.length === keyArr.length){
-            for(let i = 0; i < konamiCode.length; i++){
-                if(konamiCode[i] !== keyArr[i]){
-                    isCode = false;
-                    break;
-                } else {
-                    isCode = true;
-                }
+            if(konamiCode.join(" ") === keyArr.join(" ")){
+                isCode = true;
             }
         }
-        if(isCode){
-            alert("You have added 30 lives!");
-        }
-        isCode = false;
+        return isCode;
+    }
+
+    function playCorrectCodeAudio(){
+        $(".audio-correct-code").trigger("play");
+    }
+    function playInvalidCodeAudio(){
+        $(".audio-invalid-code").trigger("play");
     }
 
 });

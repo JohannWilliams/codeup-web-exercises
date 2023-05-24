@@ -4,15 +4,15 @@ $(function(){
     /**
      * global variables.
      *
-     * * [] array to hold all key inputs
-     * * [] array for correct Konami code
-     * * boolean to check if code is correct.
+     *      [] array to hold all key inputs
+     *      [] array for correct Konami code
+     *      boolean to check if code is correct.
      */
     let keyArr = [];
     let konamiCode = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
     let isCode = false;
 
-
+    // adjusting volume for audio elements.
     document.getElementById("invalid-audio-volume").volume = 0.1;
     document.getElementById("correct-audio-volume").volume = 0.1;
 
@@ -93,7 +93,7 @@ $(function(){
     }
 
     /**
-     * resets all varaibles to default values
+     * resets all variables to default values
      * should be called each time a code input
      * has been checked.
      */

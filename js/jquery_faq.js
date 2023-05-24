@@ -21,4 +21,30 @@ $(function (){
     $(".toggle-visibility").on("click", function (){
         $("dd").toggleClass("invisible");
     });
+
+    /**
+     * add event to button, so it highlights the last li of
+     * each ul group.
+     */
+    $("#highlight-last-li").on("click", function (){
+        $("ul").each(function(index){
+            $(this).children().last().addClass("highlight");
+        });
+    });
+
+    /**
+     * add event to each h3 so the ul and its list items get bolded when that
+     * h3 is clicked.
+     */
+    $("h3").on("click", function (){
+        $(this).next().children().css("font-weight", "bold");
+    });
+
+    /**
+     * add event to each li item so that it makes the first li of its ul
+     * group blue when clicked.
+     */
+    $("li").on("click", function(){
+        $(this).parent().children().first().css("color", "blue");
+    });
 });

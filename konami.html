@@ -9,11 +9,11 @@
 	<link rel="stylesheet" href="css/konami.css">
 </head>
 <body>
-<h1>Konami Code</h1>
+<h1 class="text-center my-5">Konami Code</h1>
 
-<div class="img-code-inputted row w-80">
+<div class="img-code-inputted row w-80 d-flex justify-content-center align-items-center">
 	<div class="col-10">
-		<div id="code-invalid-gif" class="tenor-gif-embed d-none" data-postid="16870796" data-share-method="host"
+		<div id="code-invalid-gif" class="tenor-gif-embed  d-none" data-postid="16870796" data-share-method="host"
 		     data-aspect-ratio="1.48148">
 			<a href="https://tenor.com/view/ateu-fora-fora-closing-the-door-gif-16870796">Ateu Fora Closing The Door
 				GIF</a>from <a href="https://tenor.com/search/ateu+fora-gifs">Ateu Fora GIFs</a>
@@ -27,10 +27,10 @@
 </div>
 
 <!--audio files. play upon success or failure of code input-->
-<audio class="audio-correct-code">
+<audio class="audio-correct-code" id="correct-audio-volume">
 	<source src="konamiAssets/codecorrect.mp3" type="audio/mpeg">
 </audio>
-<audio class="audio-invalid-code">
+<audio class="audio-invalid-code" id="invalid-audio-volume">
 	<source src="konamiAssets/invalidCode.mp3" type="audio/mpeg">
 </audio>
 

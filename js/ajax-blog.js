@@ -2,14 +2,20 @@
 
 $(document).ready(function(){
     $.get("data/blog.json").done(onSuccess);
+    $("#submit-form").on("click", function(){
+        $.post("data/blog.json",
+            {
+                title: $("#inputBlogTitle").val(),
+                content: $("#blogContent").val(),
+                date: $("#inputBlogDate").val()
+            })
+            .done(onPostSuccess).fail(onPostFail)
+    })
 
     function onSuccess(data){
         let htmlPostString = "";
         data.forEach(function(post, index){
             let categoriesListHTML = `<p class="fs-4">Categories</p><ul class="list-group list-group-flush">`;
-                    // `<li className="list-group-item">An item</li>` +
-                    // `<li className="list-group-item">A second item</li>` +
-                    // `<li className="list-group-item">A third item</li>` + ;
             post.categories.forEach(function(cat){
                 categoriesListHTML += `<li class="list-group-item">${cat}</li>`;
             });
@@ -36,5 +42,13 @@ $(document).ready(function(){
                 `</div>`;
         });
         $("#posts").html(htmlPostString);
+    }
+
+    function onPostFail(){
+        alert("failed to post");
+    }
+
+    function onPostSuccess(){
+        alert("post successful");
     }
 });

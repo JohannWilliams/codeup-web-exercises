@@ -12,6 +12,41 @@
 <main class="container my-5">
 	<h1 class="text-center my-2">Blog</h1>
 	
+	<form action="" method="post">
+		<div class="row">
+			<div class="col-4">
+				<div class="mb-3">
+					<label for="inputBlogTitle" class="form-label">Blog Title</label>
+					<input type="text" class="form-control" id="inputBlogTitle" name="title">
+				</div>
+				<div class="mb-3">
+					<label for="inputBlogDate" class="form-label">Date</label>
+					<input type="date" class="form-control" id="inputBlogDate" name="date">
+				</div>
+				<p>Categories</p>
+				<div class="mb-3">
+					<input type="checkbox" class="btn-check" id="btn-check-outlined-1" value="family" name="categories" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btn-check-outlined-1">Family</label>
+					<input type="checkbox" class="btn-check" id="btn-check-outlined-2" value="sweets" name="categories" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btn-check-outlined-2">Sweets</label>
+					<input type="checkbox" class="btn-check" id="btn-check-outlined-3" value="greek" name="categories" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btn-check-outlined-3">Greek</label>
+					<input type="checkbox" class="btn-check" id="btn-check-outlined-4" value="sugar" name="categories" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btn-check-outlined-4">Sugar</label>
+					<input type="checkbox" class="btn-check" id="btn-check-outlined-5" value="candy" name="categories" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btn-check-outlined-5">Candy</label>
+				</div>
+			</div>
+			<div class="col-8">
+				<div class="mb-3">
+					<label for="blogContent" class="form-label">Blog Post Content</label>
+					<textarea class="form-control" id="blogContent" rows="9" name="content"></textarea>
+				</div>
+			</div>
+		</div>
+		<button id="submit-form" type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	
 	<div class="row">
 		<div class="col-12 d-flex justify-content-center align-items-center">
 			<div id="posts"></div>

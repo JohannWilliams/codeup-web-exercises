@@ -5,3 +5,27 @@
 .highlight{
     background-color: yellow;
 }
+
+.swap-image{
+    width: 50%;
+    height: 20em;
+}
+
+#left-image{
+    background-image: url("../images/zelda.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100% ;
+}
+
+
+#middle-image{
+    background-image: url("../images/link.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100% ;
+}
+
+#right-image{
+    background-image: url("../images/Ganondorf.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100% ;
+}

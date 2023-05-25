@@ -47,4 +47,43 @@ $(function (){
     $("li").on("click", function(){
         $(this).parent().children().first().css("color", "blue");
     });
+
+
+    // Placeholder for all divs with background images
+    let divImages = $(".swap-image")
+
+    /**
+     * When left button is pushed. swap its background image with
+     * the background image in the middle.
+     */
+    $("#swap-left-btn").on("click", function(){
+        let tempImageURL = divImages.eq(0).css("background-image").toString();
+        divImages.eq(0).css("background-image", divImages.eq(1).css("background-image").toString());
+        divImages.eq(1).css("background-image", tempImageURL);
+    })
+
+    /**
+     * when middle button is pushed. swap its background image with
+     * either the left or right background image. position is selected
+     * at random. if position = 1 (middle image) get a new random number.
+     */
+    $("#swap-middle-btn").on("click", function(){
+        let randomPos;
+        do{
+            randomPos = Math.floor(Math.random() * 3)
+        }while(randomPos === 1);
+        let tempImageURL = divImages.eq(1).css("background-image").toString();
+        divImages.eq(1).css("background-image", divImages.eq(randomPos).css("background-image").toString());
+        divImages.eq(randomPos).css("background-image", tempImageURL);
+    })
+
+    /**
+     * when right button is pushed. swap its background image with
+     * the background image in the middle.
+     */
+    $("#swap-right-btn").on("click", function(){
+        let tempImageURL = divImages.eq(2).css("background-image").toString();
+        divImages.eq(2).css("background-image", divImages.eq(1).css("background-image").toString());
+        divImages.eq(1).css("background-image", tempImageURL);
+    })
 });

@@ -2,15 +2,16 @@
 
 $(document).ready(function(){
     $.get("data/blog.json").done(onSuccess);
-    $("#submit-form").on("click", function(){
+    $("#submit-form").on("click", function(event){
+        event.preventDefault();
         $.post("data/blog.json",
             {
                 title: $("#inputBlogTitle").val(),
                 content: $("#blogContent").val(),
                 date: $("#inputBlogDate").val()
             })
-            .done(onPostSuccess).fail(onPostFail)
-    })
+            .done(onPostSuccess).fail(onPostFail);
+    });
 
     function onSuccess(data){
         let htmlPostString = "";

@@ -52,15 +52,18 @@ $(function (){
     // Placeholder for all divs with background images
     let divImages = $(".swap-image")
 
+    // image indexes
+    let leftImgIndex = 0;
+    let middleImgIndex = 1;
+    let rightImgIndex = 2;
+
     /**
      * When left button is pushed. swap its background image with
      * the background image in the middle.
      */
-    $("#swap-left-btn").on("click", function(){
-        let tempImageURL = divImages.eq(0).css("background-image").toString();
-        divImages.eq(0).css("background-image", divImages.eq(1).css("background-image").toString());
-        divImages.eq(1).css("background-image", tempImageURL);
-    })
+    $("#swap-left-btn").on("click", function (){
+        swapImages(leftImgIndex, middleImgIndex);
+    });
 
     /**
      * when middle button is pushed. swap its background image with
@@ -71,10 +74,8 @@ $(function (){
         let randomPos;
         do{
             randomPos = Math.floor(Math.random() * 3)
-        }while(randomPos === 1);
-        let tempImageURL = divImages.eq(1).css("background-image").toString();
-        divImages.eq(1).css("background-image", divImages.eq(randomPos).css("background-image").toString());
-        divImages.eq(randomPos).css("background-image", tempImageURL);
+        }while(randomPos === middleImgIndex);
+        swapImages(middleImgIndex, randomPos);
     })
 
     /**
@@ -82,8 +83,19 @@ $(function (){
      * the background image in the middle.
      */
     $("#swap-right-btn").on("click", function(){
-        let tempImageURL = divImages.eq(2).css("background-image").toString();
-        divImages.eq(2).css("background-image", divImages.eq(1).css("background-image").toString());
-        divImages.eq(1).css("background-image", tempImageURL);
+        swapImages(rightImgIndex,middleImgIndex);
     })
+
+    /**
+     * pass in 2 image positions. position 1 is the image to swap, and
+     * position 2 is the image it will be swapped with. 0 left image, 1
+     * middle image, and 2 is right image.
+     * @param pos1
+     * @param pos2
+     */
+    function swapImages(pos1, pos2){
+        let tempImageURL = divImages.eq(pos1).css("background-image").toString();
+        divImages.eq(pos1).css("background-image", divImages.eq(pos2).css("background-image").toString());
+        divImages.eq(pos2).css("background-image", tempImageURL);
+    }
 });

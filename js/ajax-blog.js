@@ -6,12 +6,12 @@ $(document).ready(function(){
     function onSuccess(data){
         let htmlPostString = "";
         data.forEach(function(post, index){
-            let categoriesListHTML = `<p class="fs-4">Categories</p><ul className="list-group list-group-flush">`;
+            let categoriesListHTML = `<p class="fs-4">Categories</p><ul class="list-group list-group-flush">`;
                     // `<li className="list-group-item">An item</li>` +
                     // `<li className="list-group-item">A second item</li>` +
                     // `<li className="list-group-item">A third item</li>` + ;
             post.categories.forEach(function(cat){
-                categoriesListHTML += `<li className="list-group-item">${cat}</li>`;
+                categoriesListHTML += `<li class="list-group-item">${cat}</li>`;
             });
             categoriesListHTML += `</ul>`;
 
@@ -20,9 +20,15 @@ $(document).ready(function(){
                 `Blog Post ${index + 1}` +
                 `</div>` +
                 `<div class="card-body">` +
+                `<div class="row">` +
+                `<div class="col-6 mx-auto">` +
                 `<h5 class="card-title">${post.title}</h5>` +
                 `<p class="card-text">${post.content}</p>` +
+                `</div>` +
+                `<div class="col-4">` +
                 categoriesListHTML +
+                `</div>` +
+                `</div>` +
                 `</div>` +
                 `<div class="card-footer text-end text-body-secondary">` +
                 `${post.date}` +

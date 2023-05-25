@@ -30,5 +30,20 @@
         "tool"
     ],
     "price": 10
+}, {
+    "title": "Hose",
+    "quantity": 1,
+    "categories": [
+        "tool",
+        "outdoor"
+    ],
+    "price": 25
+}, {
+    "title": "Flashlight",
+    "quantity": 3,
+    "categories": [
+        "tool"
+    ],
+    "price": 15
 }
 ]

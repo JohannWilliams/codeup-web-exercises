@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     function onSuccess(data){
         let htmlPostString = "";
-        data.forEach(function(post){
+        data.forEach(function(post, index){
             let categoriesListHTML = `<p class="fs-4">Categories</p><ul className="list-group list-group-flush">`;
                     // `<li className="list-group-item">An item</li>` +
                     // `<li className="list-group-item">A second item</li>` +
@@ -15,9 +15,9 @@ $(document).ready(function(){
             });
             categoriesListHTML += `</ul>`;
 
-            htmlPostString += `<div class="card my-2">` +
+            htmlPostString += `<div class="card my-4">` +
                 `<div class="card-header text-center">` +
-                `Blog Post` +
+                `Blog Post ${index + 1}` +
                 `</div>` +
                 `<div class="card-body">` +
                 `<h5 class="card-title">${post.title}</h5>` +
@@ -32,5 +32,4 @@ $(document).ready(function(){
         $("#posts").html(htmlPostString);
         htmlPostString = "";
     }
-
 });

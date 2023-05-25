@@ -1,6 +1,6 @@
 "use strict";
 
-$(function (){
+$(document).ready(function (){
     let linkToAdd = `<a class="toggle-visibility" href="#">Show/Hide Answers</a>`
 
     //add link to div section below list

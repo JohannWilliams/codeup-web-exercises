@@ -36,6 +36,5 @@ $(document).ready(function(){
                 `</div>`;
         });
         $("#posts").html(htmlPostString);
-        htmlPostString = "";
     }
 });

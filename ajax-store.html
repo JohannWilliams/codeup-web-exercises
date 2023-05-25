@@ -24,7 +24,22 @@
 <script>
 	(function() {
 		"use strict";
+		let htmlTableString = "";
 		// TODO: Create an AJAX GET request for the file under data/inventory.json
+		$.get("data/inventory.json").done(onSuccess);
+		
+		function onSuccess(data){
+			data.forEach(function(tools){
+				htmlTableString += `<tr>`;
+				htmlTableString += `<td>${tools.title}</td>`;
+				htmlTableString += `<td>${tools.quantity}</td>`;
+				htmlTableString += `<td>${tools.price}</td>`;
+				htmlTableString += `<td>${tools.categories.join(", ")}</td>`;
+				htmlTableString += `</tr>`;
+			});
+			
+			$("#insertProducts").html(htmlTableString);
+		}
 		
 		// TODO: Take the data from inventory.json and append it to the products table
 		//       HINT: Your data should come back as a JSON object; use console.log() to inspect

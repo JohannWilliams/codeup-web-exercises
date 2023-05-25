@@ -1,7 +1,6 @@
 "use strict";
 $(document).ready(function() {
     "use strict";
-    let htmlTableString = "";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
     $.get("data/inventory.json").done(onSuccess);
 
@@ -16,6 +15,8 @@ $(document).ready(function() {
      * @param data
      */
     function onSuccess(data){
+
+        let htmlTableString = "";
         data.forEach(function(tools){
             htmlTableString += `<tr>`;
             htmlTableString += `<td>${tools.title}</td>`;
@@ -32,8 +33,7 @@ $(document).ready(function() {
      * upon clicking the button reset the table.
      */
     $("#refresh-table").on("click", function (){
-        htmlTableString = "";
         $.get("data/inventory.json").done(onSuccess);
-    })
+    });
 
 });

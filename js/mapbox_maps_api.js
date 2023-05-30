@@ -2,8 +2,10 @@
 
 $(document).ready(function(){
 
-    let darkMapStyle = 'mapbox://styles/mapbox/navigation-night-v1';
-    let lightMapStyle = 'mapbox://styles/mapbox/navigation-day-v1';
+    let lightMapStyle = 'mapbox://styles/mapbox/light-v11';
+    let darkMapStyle = 'mapbox://styles/mapbox/dark-v11';
+    let darkNavMapStyle = 'mapbox://styles/mapbox/navigation-night-v1';
+    let lightNavMapStyle = 'mapbox://styles/mapbox/navigation-day-v1';
     let homeLatLong = [7.725, 49.47];
     let homeZoom = 12
     let homePitch = 75;
@@ -76,6 +78,14 @@ $(document).ready(function(){
 
     $("#dark-map").on("click", function(){
         map.setStyle(darkMapStyle);
+    });
+
+    $("#light-nav-map").on("click", function(){
+        map.setStyle(lightNavMapStyle);
+    });
+
+    $("#dark-nav-map").on("click", function(){
+        map.setStyle(darkNavMapStyle);
     });
 
     $("#home-location").click(updateMapLocation);

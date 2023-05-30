@@ -4,3 +4,12 @@
     height: 700px;
     border-radius: 25px;
 }
+
+.marker{
+    background-image: url('../images/food_marker_dark.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}

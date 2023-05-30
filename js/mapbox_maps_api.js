@@ -53,14 +53,15 @@ $(document).ready(function(){
     ];
 
     restaurantsArr.forEach(function(restaurant){
+        restaurant.htmlEl = document.createElement('div');
+        restaurant.htmlEl.className = 'marker';
         geocode(restaurant.address, MAPBOX_KEY_EX_1).then(function(result) {
-            console.log(result);
             restaurant.latLong = result;
             restaurant.zoom = 16;
             restaurant.pitch = 0;
             restaurant.bearing = 0;
-            let marker = new mapboxgl.Marker()
-                .setLngLat(result)
+            let marker = new mapboxgl.Marker(restaurant.htmlEl)
+                .setLngLat(restaurant.latLong)
                 .addTo(map);
             let restaurantPopup = new mapboxgl.Popup()
                 .setHTML("<p>" + restaurant.name + "<hr>" + restaurant.times + "</p>");
@@ -85,15 +86,13 @@ $(document).ready(function(){
 
 
     function updateMapLocation(){
-        console.log(this.value);
-        if(this.value == 0){
+        if(parseInt(this.value) === 0){
             mapCenterLocation = homeLatLong
             map.setCenter(homeLatLong);
             map.setPitch(homePitch);
             map.setBearing(homeBearing);
             map.setZoom(homeZoom);
         } else {
-            console.log("hello from else");
             mapCenterLocation = restaurantsArr[this.value - 1].latLong;
             map.setCenter(restaurantsArr[this.value - 1].latLong);
             map.setPitch(restaurantsArr[this.value - 1].pitch);
@@ -129,7 +128,6 @@ $(document).ready(function(){
 
     function searchAddress(){
         geocode($("#address-search").val(), MAPBOX_KEY_EX_1).then(function(result) {
-            console.log(result);
             mapCenterLocation = result;
             map.setCenter(mapCenterLocation);
             map.setZoom(12);

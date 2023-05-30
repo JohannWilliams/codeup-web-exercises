@@ -1,10 +1,5 @@
 #map {
     /* the width and height may be set to any size */
-    width: 100%;
+    width: 50%;
     height: 700px;
-}
-
-.special-font{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
 }

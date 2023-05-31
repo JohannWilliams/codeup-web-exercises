@@ -6,10 +6,10 @@ $(document).ready(function(){
     let darkMapStyle = 'mapbox://styles/mapbox/dark-v11';
     let darkNavMapStyle = 'mapbox://styles/mapbox/navigation-night-v1';
     let lightNavMapStyle = 'mapbox://styles/mapbox/navigation-day-v1';
-    let homeLatLong = [7.725, 49.47];
-    let homeZoom = 12
-    let homePitch = 75;
-    let homeBearing = 35;
+    let homeLatLong = [7.6725, 49.431];
+    let homeZoom = 16;
+    let homePitch = 0;
+    let homeBearing = 0;
     let mapCenterLocation = homeLatLong;
 
     let currentZoomIndex = 4;
@@ -28,33 +28,43 @@ $(document).ready(function(){
 
     let restaurantsArr = [
         {
-            name: "restaurant SAPIENTIA",
-            address: "Vorstadt 11, 67292 Kirchheimbolanden, Germany",
-            times: " Dienstag - Sonntag<br>" +
-                "* 11:30 - 14:00 Uhr<br>" +
-                "* 17:30 - 22:00 Uhr<br>" +
-                " Montag Ruhetag<br>" +
-                "* (an Feiertagen geöffnet)"
+            name: "China Town Imbiss",
+            address: "Kaiserstraße 14, 67661 Kaiserslautern, Germany",
+            website: "http://chinatownimbiss.de/ImbissChinatown.html",
+            info: "Place text here",
+            imageURL:"../images/beef_imbiss.png"
         },{
             name: "Döner Time",
             address: "Kaiserstraße 1, 67661 Kaiserslautern, Germany",
-            times: " Monday - Saturday<br>" +
-                "* 11:00 - 21:00 Uhr<br>" +
-                " Sunday<br>" +
-                "* 12:00 - 21:00 Uhr"
+            website: "https://www.facebook.com/DoenerTime",
+            info: "Place text here",
+            imageURL:"../images/doner_time_store_front.jpeg"
         },{
             name: "Pizza Hut Kaiserslautern, Kaiserstraße",
             address: "Kaiserstraße 34, 67661 Kaiserslautern, Germany",
-            times: " Monday - Thursday<br>" +
-                "* 11:00 - 22:00 Uhr<br>" +
-                " Friday - Saturday<br>" +
-                "* 11:00 - 00:00 Uhr<br>" +
-                " Sunday<br>" +
-                "* 12:00 - 22:00 Uhr"
+            website: "https://pizzahut.de/restaurants/pizza-hut-kaiserslautern",
+            info: "You never had Pizza Hut until you sit down in a fancy restaurant and dine on gourmet style pizza and finish with a cookie covered in ice cream and fudge.",
+            imageURL:"../images/pizza-hut.jpg"
         }
     ];
 
-    restaurantsArr.forEach(function(restaurant){
+    function createPopupBSCard(index){
+        if(index === 0){
+
+        }
+        return `<div class="card h-100">
+            <img src="${restaurantsArr[index].imageURL}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${restaurantsArr[index].name}</h5>
+                    <p class="card-text">${restaurantsArr[index].info}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-end text-body-secondary">Website: <a href="${restaurantsArr[index].website}"> ${restaurantsArr[index].name}</a></small>
+                </div>
+        </div>`
+    }
+
+    restaurantsArr.forEach(function(restaurant, index){
         restaurant.htmlEl = document.createElement('div');
         restaurant.htmlEl.className = 'marker';
         geocode(restaurant.address, MAPBOX_KEY_EX_1).then(function(result) {
@@ -66,7 +76,7 @@ $(document).ready(function(){
                 .setLngLat(restaurant.latLong)
                 .addTo(map);
             let restaurantPopup = new mapboxgl.Popup()
-                .setHTML("<p>" + restaurant.name + "<hr>" + restaurant.times + "</p>");
+                .setHTML(createPopupBSCard(index));
 
             marker.setPopup(restaurantPopup);
         });

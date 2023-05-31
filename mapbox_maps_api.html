@@ -27,9 +27,6 @@
 				<div class="col d-flex justify-content-center align-items-center">
 					<p class="fs-4">Zoom</p>
 				</div>
-				<div class="col d-flex justify-content-center align-items-center">
-					<p class="fs-4">Search Address</p>
-				</div>
 			</div>
 			<div class="row my-2 d-flex justify-content-center align-items-center">
 				<div class="col d-flex justify-content-center align-items-center">
@@ -54,10 +51,30 @@
 						<button id="zoom-out-map" type="button" class="btn btn-outline-primary">Zoom Out</button>
 					</div>
 				</div>
-				<div class="col d-flex justify-content-center align-items-center">
-					<div class="input-group mb-3">
-						<input id="address-search" type="text" class="form-control" placeholder="1234 Sample St. Austin, Tx">
-						<button class="btn btn-outline-secondary" type="button" id="address-search-button">Search</button>
+			</div>
+			<div class="row mx-auto my-2 d-flex justify-content-center align-items-center">
+				<div class="col">
+					<div class="row my-2 d-flex justify-content-center align-items-center">
+						<div class="col-4 d-flex justify-content-center align-items-center">
+							<p class="fs-4">Show/Hide Markers</p>
+						</div>
+						<div class="col-8 d-flex justify-content-center align-items-center">
+							<p class="fs-4">Search Address</p>
+						</div>
+					</div>
+					<div class="row my-2 d-flex justify-content-center align-items-center">
+						<div class="col-4 d-flex justify-content-center align-items-center">
+							<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+								<button id="hide-markers" type="button" class="btn btn-outline-primary">Hide</button>
+								<button id="show-markers" type="button" class="btn btn-outline-primary">Show</button>
+							</div>
+						</div>
+						<div class="col-8 d-flex justify-content-center align-items-center">
+							<div class="input-group mb-3">
+								<input id="address-search" type="text" class="form-control" placeholder="1234 Sample St. Austin, Tx">
+								<button class="btn btn-outline-secondary" type="button" id="address-search-button">Search</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -68,6 +85,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</div>
 	
 	

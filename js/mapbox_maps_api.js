@@ -1,6 +1,6 @@
 "use strict";
 
-$(document).ready(function(){
+$(document).ready(function () {
 
     let lightMapStyle = 'mapbox://styles/mapbox/light-v11';
     let darkMapStyle = 'mapbox://styles/mapbox/dark-v11';
@@ -31,25 +31,25 @@ $(document).ready(function(){
             name: "China Town Imbiss",
             address: "Kaiserstraße 14, 67661 Kaiserslautern, Germany",
             website: "http://chinatownimbiss.de/ImbissChinatown.html",
-            info: "Place text here",
-            imageURL:"../images/beef_imbiss.png"
-        },{
+            info: "You will never experience better Chinese Food then this. Come try everything. You will not be disappointed.",
+            imageURL: "../images/beef_imbiss.png"
+        }, {
             name: "Döner Time",
             address: "Kaiserstraße 1, 67661 Kaiserslautern, Germany",
             website: "https://www.facebook.com/DoenerTime",
-            info: "Place text here",
-            imageURL:"../images/doner_time_store_front.jpeg"
-        },{
+            info: "Greece style Gyro has never tested better. This German Restaurant serves some of the best Gyro in the world. Stop by to enjoy your Gyro in a sandwich, or in a box with some of the best fries and toppings around.",
+            imageURL: "../images/doner_time_store_front.jpeg"
+        }, {
             name: "Pizza Hut Kaiserslautern, Kaiserstraße",
             address: "Kaiserstraße 34, 67661 Kaiserslautern, Germany",
             website: "https://pizzahut.de/restaurants/pizza-hut-kaiserslautern",
             info: "You never had Pizza Hut until you sit down in a fancy restaurant and dine on gourmet style pizza and finish with a cookie covered in ice cream and fudge.",
-            imageURL:"../images/pizza-hut.jpg"
+            imageURL: "../images/pizza-hut.jpg"
         }
     ];
 
-    function createPopupBSCard(index){
-        if(index === 0){
+    function createPopupBSCard(index) {
+        if (index === 0) {
 
         }
         return `<div class="card h-100">
@@ -64,10 +64,10 @@ $(document).ready(function(){
         </div>`
     }
 
-    restaurantsArr.forEach(function(restaurant, index){
+    restaurantsArr.forEach(function (restaurant, index) {
         restaurant.htmlEl = document.createElement('div');
         restaurant.htmlEl.className = 'marker';
-        geocode(restaurant.address, MAPBOX_KEY_EX_1).then(function(result) {
+        geocode(restaurant.address, MAPBOX_KEY_EX_1).then(function (result) {
             restaurant.latLong = result;
             restaurant.zoom = 16;
             restaurant.pitch = 0;
@@ -82,19 +82,19 @@ $(document).ready(function(){
         });
     });
 
-    $("#light-map").on("click", function(){
+    $("#light-map").on("click", function () {
         map.setStyle(lightMapStyle);
     });
 
-    $("#dark-map").on("click", function(){
+    $("#dark-map").on("click", function () {
         map.setStyle(darkMapStyle);
     });
 
-    $("#light-nav-map").on("click", function(){
+    $("#light-nav-map").on("click", function () {
         map.setStyle(lightNavMapStyle);
     });
 
-    $("#dark-nav-map").on("click", function(){
+    $("#dark-nav-map").on("click", function () {
         map.setStyle(darkNavMapStyle);
     });
 
@@ -105,8 +105,8 @@ $(document).ready(function(){
     $("#location-3").click(updateMapLocation);
 
 
-    function updateMapLocation(){
-        if(parseInt(this.value) === 0){
+    function updateMapLocation() {
+        if (parseInt(this.value) === 0) {
             mapCenterLocation = homeLatLong
             map.setCenter(homeLatLong);
             map.setPitch(homePitch);
@@ -125,8 +125,8 @@ $(document).ready(function(){
     $("#zoom-out-map").click(zoomOut);
 
 
-    function zoomIn(){
-        if(currentZoomIndex === zoomArr.length - 1){
+    function zoomIn() {
+        if (currentZoomIndex === zoomArr.length - 1) {
             currentZoomIndex = 0
         } else {
             currentZoomIndex++;
@@ -134,8 +134,9 @@ $(document).ready(function(){
         map.setZoom(zoomArr[currentZoomIndex]);
         map.setCenter(mapCenterLocation);
     }
-    function zoomOut(){
-        if(currentZoomIndex === 0){
+
+    function zoomOut() {
+        if (currentZoomIndex === 0) {
             currentZoomIndex = zoomArr.length - 1;
         } else {
             currentZoomIndex--;
@@ -146,8 +147,8 @@ $(document).ready(function(){
 
     $("#address-search-button").click(searchAddress);
 
-    function searchAddress(){
-        geocode($("#address-search").val(), MAPBOX_KEY_EX_1).then(function(result) {
+    function searchAddress() {
+        geocode($("#address-search").val(), MAPBOX_KEY_EX_1).then(function (result) {
             mapCenterLocation = result;
             map.setCenter(mapCenterLocation);
             map.setZoom(12);
@@ -159,4 +160,20 @@ $(document).ready(function(){
         });
     }
 
+    $("#hide-markers").click(hideMarkers);
+    $("#show-markers").click(showMarkers);
+
+    function hideMarkers(){
+        let markers = $(".marker");
+        for(let i = 0; i < markers.length; i++){
+            markers[i].hidden = true;
+        }
+    }
+
+    function showMarkers(){
+        let markers = $(".marker");
+        for(let i = 0; i < markers.length; i++){
+            markers[i].hidden = false;
+        }
+    }
 });

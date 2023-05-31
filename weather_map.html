@@ -15,6 +15,23 @@
 	<link rel="stylesheet" href="css/weather_map.css">
 </head>
 <body>
+<!--    Header contains nav bar/ search menu collapses on small screens-->
+<header class="container-flex m-0 p-0 " id="header">
+	<nav class="navbar navbar-expand-md bg-body-tertiary">
+		<div class="container-fluid d-flex">
+			<a class="navbar-brand fs-1 my-3 ms-5 flex-grow-1" href="#">Masta Weather</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse flex-grow-3" id="navbarSupportedContent">
+				<form class="d-flex ms-auto form-control bg-transparent" role="search">
+					<input id="location-search-input" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+					<button id="location-search-btn" class="btn btn-outline-success" type="submit">Search</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+</header>
 
 <div class="container-flex">
 

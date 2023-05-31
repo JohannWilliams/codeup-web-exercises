@@ -2,6 +2,9 @@
 
 $(document).ready(function () {
 
+    /**
+     * global variables for project.
+     */
     let lightMapStyle = 'mapbox://styles/mapbox/light-v11';
     let darkMapStyle = 'mapbox://styles/mapbox/dark-v11';
     let darkNavMapStyle = 'mapbox://styles/mapbox/navigation-night-v1';
@@ -16,6 +19,9 @@ $(document).ready(function () {
     let zoomArr = [0, 5, 10, 12, 15, 17, 20];
 
 
+    /**
+     * create the map with a preset location and orientation.
+     */
     mapboxgl.accessToken = MAPBOX_KEY_EX_1;
     let map = new mapboxgl.Map({
         container: 'map', // container ID
@@ -26,6 +32,10 @@ $(document).ready(function () {
         center: homeLatLong // [lng, lat]
     });
 
+    /**
+     * array of restaurant objects.
+     * @type {[{website: string, address: string, imageURL: string, name: string, info: string},{website: string, address: string, imageURL: string, name: string, info: string},{website: string, address: string, imageURL: string, name: string, info: string}]}
+     */
     let restaurantsArr = [
         {
             name: "China Town Imbiss",
@@ -48,10 +58,14 @@ $(document).ready(function () {
         }
     ];
 
+    /**
+     * takes in a number that then creates a BS card for
+     * displaying in the Popup window for each restaurant
+     * object in the restaurant object.
+     * @param index
+     * @returns {string}
+     */
     function createPopupBSCard(index) {
-        if (index === 0) {
-
-        }
         return `<div class="card h-100">
             <img src="${restaurantsArr[index].imageURL}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -64,6 +78,11 @@ $(document).ready(function () {
         </div>`
     }
 
+    /**
+     * take an array of restaurant objects and set up a
+     * marker with a popup to display on the map. calls
+     * the geocoder function to get lat and long from address.
+     */
     restaurantsArr.forEach(function (restaurant, index) {
         restaurant.htmlEl = document.createElement('div');
         restaurant.htmlEl.className = 'marker';
@@ -82,6 +101,10 @@ $(document).ready(function () {
         });
     });
 
+    /**
+     * bellow are click events that updates the maps style.
+     * map styles are dark and light with navigation or no nav.
+     */
     $("#light-map").on("click", function () {
         map.setStyle(lightMapStyle);
     });
@@ -98,13 +121,19 @@ $(document).ready(function () {
         map.setStyle(darkNavMapStyle);
     });
 
+    /**
+     * click events for updated the maps location
+     */
     $("#home-location").click(updateMapLocation);
-
     $("#location-1").click(updateMapLocation);
     $("#location-2").click(updateMapLocation);
     $("#location-3").click(updateMapLocation);
 
-
+    /**
+     * used to set the current camera location and zoom
+     * to a specific location. (home or specific restaurant).
+     * based on which button is pushed.
+     */
     function updateMapLocation() {
         if (parseInt(this.value) === 0) {
             mapCenterLocation = homeLatLong
@@ -121,10 +150,17 @@ $(document).ready(function () {
         }
     }
 
+    /**
+     * click events for camera zoom buttons
+     */
     $("#zoom-in-map").click(zoomIn);
     $("#zoom-out-map").click(zoomOut);
 
-
+    /**
+     * zooms the camera in. uses an array of
+     * preset camera zooms. Wrap the index if
+     * out of range.
+     */
     function zoomIn() {
         if (currentZoomIndex === zoomArr.length - 1) {
             currentZoomIndex = 0
@@ -135,6 +171,11 @@ $(document).ready(function () {
         map.setCenter(mapCenterLocation);
     }
 
+    /**
+     * zooms the camera out. uses an array of
+     * preset camera zooms. Wrap the index if
+     * out of range.
+     */
     function zoomOut() {
         if (currentZoomIndex === 0) {
             currentZoomIndex = zoomArr.length - 1;
@@ -145,8 +186,18 @@ $(document).ready(function () {
         map.setCenter(mapCenterLocation);
     }
 
+    /**
+     * click event for search button. calls the address
+     * search method.
+     */
     $("#address-search-button").click(searchAddress);
 
+    /**
+     * when called. takes the value that is in the text
+     * input and then pass it into the geocode function in
+     * the utils file to get back the lat and long of that
+     * address. places a marker and moves to that location
+     */
     function searchAddress() {
         geocode($("#address-search").val(), MAPBOX_KEY_EX_1).then(function (result) {
             mapCenterLocation = result;
@@ -160,9 +211,16 @@ $(document).ready(function () {
         });
     }
 
+    /**
+     * add click events to the hide and show buttons to
+     * hide or show markers that are on the map.
+     */
     $("#hide-markers").click(hideMarkers);
     $("#show-markers").click(showMarkers);
 
+    /**
+     * hides the map markers when called.
+     */
     function hideMarkers(){
         let markers = $(".marker");
         for(let i = 0; i < markers.length; i++){
@@ -170,6 +228,9 @@ $(document).ready(function () {
         }
     }
 
+    /**
+     * shows the map markers when called.
+     */
     function showMarkers(){
         let markers = $(".marker");
         for(let i = 0; i < markers.length; i++){

@@ -16,7 +16,6 @@ $(document).ready(function () {
     let windSpeedStr = "";
     let degreeStr = "";
 
-
     /**
      * create the map with a preset location and orientation.
      */
@@ -25,14 +24,32 @@ $(document).ready(function () {
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/streets-v12', // style URL
         zoom: 10, // starting zoom
-        center: [0,0] // [lng, lat]
+        center: mapCenterLoc// [lng, lat]
     });
     geocode(homeLocation, MAPBOX_KEY).then(function (result) {
         mapCenterLoc = result;
-        map.setCenter(mapCenterLoc);
+        map.setCenter(result);
         getWeatherData();
     });
 
+    /**
+     * create a marker at the maps center
+     * location. Set it to be draggable
+     * on the map and add it to the map
+     */
+    const marker = new mapboxgl.Marker({
+        draggable: true,
+        color: "pink"
+    })
+        .setLngLat(mapCenterLoc)
+        .addTo(map);
+
+    function dragEnded() {
+        const loc = marker.getLngLat();
+        map.setCenter(loc)
+    }
+
+    marker.on('dragend', dragEnded);
 
     /**
      * when a style dropdown selection is clicked. update

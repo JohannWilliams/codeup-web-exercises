@@ -16,7 +16,7 @@
 </head>
 <body>
 <!--    Header contains nav bar/ search menu collapses on small screens-->
-<header class="container-flex m-0 p-0 " id="header">
+<header class="container-fluid m-0 p-0 " id="header">
 	<nav class="navbar navbar-expand-md bg-body-tertiary">
 		<div class="container-fluid d-flex">
 			<a class="navbar-brand fs-1 my-3 ms-5 flex-grow-1" href="#">Masta Weather</a>
@@ -33,9 +33,66 @@
 	</nav>
 </header>
 
-<div class="container-flex">
+<!--    Main section contains map, side menus and top button section. displays weather info.    -->
+<main class="container-fluid bg-secondary">
+<!--	Top Menu / Dropdown selection for location, Map Styles, and display units   -->
+	<div class="container py-2 mb-2 d-flex justify-content-evenly align-items-center" id="main-button-section-collapsible">
+	<!--    TODO : add more dropdowns for displaying different options   -->
+		<!--    Location Selection Dropdown -->
+		<div id="location-dropdown" class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Locations
+			</button>
+			<ul id="location-dropdown-list-items" class="dropdown-menu">
+				<li><button class="dropdown-item" type="button">Home</button></li>
+				<li><button class="dropdown-item" type="button">Chicago, IL</button></li>
+			</ul>
+		</div>
+		<!--    Map Style Dropdown  -->
+		<div id="map-style-dropdown" class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Map Style
+			</button>
+			<ul id="map-style-dropdown-list-items" class="dropdown-menu">
+				<li><button id="streets-v12" value="streets-v12" class="dropdown-item" type="button">Street</button></li>
+				<li><button id="outdoors-v12" value="outdoors-v12" class="dropdown-item" type="button">Outdoors</button></li>
+				<li><button id="light-v11" value="light-v11" class="dropdown-item" type="button">Light</button></li>
+				<li><button id="dark-v11" class="dropdown-item" type="button">Dark</button></li>
+				<li><button id="satellite-v9" value="satellite-v9" class="dropdown-item" type="button">Satellite</button></li>
+				<li><button id="satellite-streets-v12" value="satellite-streets-v12" class="dropdown-item" type="button">Satellite Streets</button></li>
+				<li><button id="navigation-day-v1" value="navigation-day-v1" class="dropdown-item" type="button">Navigation Day</button></li>
+				<li><button id="navigation-night-v1" value="navigation-night-v1" class="dropdown-item" type="button">Navigation Night</button></li>
+			</ul>
+		</div>
+		<!--	Units Selection Dropdown  -->
+		<div id="units-selection-dropdown" class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Units of Measure.
+			</button>
+			<ul id="units-selection-dropdown-list-items" class="dropdown-menu">
+				<li><button id="standard" value="standard" class="dropdown-item" type="button">Standard</button></li>
+				<li><button id="metric" value="metric" class="dropdown-item" type="button">Metric</button></li>
+				<li><button id="imperial" value="imperial" class="dropdown-item" type="button">Imperial</button></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!--    Main section for displaying current weather, the future forecast, the map, and current day weather and city information	-->
+	<div class="container-fluid">
+		<div class="row d-flex justify-content-between align-items-start">
+			<div class="col-3 d-none d-sm-none d-md-none d-lg-block d-flex flex-column my-2" id="left-side-menu"></div>
+			<div class="col-12 col-lg-6 my-2" id="center-display">
+				<div class="w-85" id="map"></div>
+			</div>
+			<div class="col-3 d-none d-sm-none d-md-none d-lg-block d-flex flex-column my-2" id="right-side-menu"></div>
+		</div>
+	</div>
+	
+</main>
 
-</div>
+<footer class="container-fluid bg-dark py-5">
+	<h1 class="text-center text-light">Just a simple footer</h1>
+</footer>
 
 <!--BS JS-->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"

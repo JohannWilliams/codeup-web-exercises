@@ -5,6 +5,7 @@
     border-radius: 25px;
 }
 
+/*make custom markers for map*/
 .marker{
     background-image: url('../images/food_marker_blue.png');
     background-size: cover;

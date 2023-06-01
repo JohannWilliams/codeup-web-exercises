@@ -13,7 +13,7 @@
 }
 
 .forecast-card{
-    height: 10em;
+    height: 13em;
     width: 17em;
 }
 
@@ -35,7 +35,7 @@
 
 .top-scroll-container{
     width: 90vw;
-    height: 11em;
+    height: 14em;
     overflow-x: scroll;
     overflow-y: clip;
 }

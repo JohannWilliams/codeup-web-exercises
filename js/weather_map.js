@@ -197,6 +197,57 @@ $(document).ready(function () {
    }
 
     /**
+     * takes in data retrieved from weather services and calculates
+     * the current days true high and low temps. returns an array of
+     * high temp arr and low temp arr.
+     * @param data
+     * @returns {*[][]}
+     */
+   function getFiveDayHighLowTemps(data){
+       let tempLowArr = [];
+       let tempHighArr = [];
+       let highLowTempIndex = 0;
+       let currentDay = 0;
+       let currentDayLow = 0;
+       let currentDayHigh = 0;
+       for(let i = 0; i < data.list.length; i++) {
+           let todayDate = new Date(data.list[i].dt * 1000);
+           if (i === 0) {
+               currentDay = todayDate.getDate();
+               currentDayLow = data.list[i].main.temp_min;
+               currentDayHigh = data.list[i].main.temp_max;
+           } else {
+               if (currentDay === todayDate.getDate() && i !== 39) {
+                   if (currentDayHigh < data.list[i].main.temp_max) {
+                       currentDayHigh = data.list[i].main.temp_max;
+                   }
+                   if (currentDayLow > data.list[i].main.temp_min) {
+                       currentDayLow = data.list[i].main.temp_min;
+                   }
+               } else if(i === 39){
+                   if (currentDayHigh < data.list[i].main.temp_max) {
+                       currentDayHigh = data.list[i].main.temp_max;
+                   }
+                   if (currentDayLow > data.list[i].main.temp_min) {
+                       currentDayLow = data.list[i].main.temp_min;
+                   }
+
+                   currentDayLow = data.list[i].main.temp_min;
+                   currentDayHigh = data.list[i].main.temp_max;
+               } else {
+                   tempLowArr.push(currentDayLow);
+                   tempHighArr.push(currentDayHigh);
+                   currentDay = todayDate.getDate();
+                   currentDayLow = data.list[i].main.temp_min;
+                   currentDayHigh = data.list[i].main.temp_max;
+               }
+           }
+       }
+
+       return [tempHighArr, tempLowArr];
+   }
+
+    /**
      * takes in weather data then sets the 5-day forecast
      * for the current location. populates the right menu.
      * @param data
@@ -210,19 +261,23 @@ $(document).ready(function () {
                                     <p class="card-text fs-5 ms-3">5 Day Forecast</p>
                                   </div>
                                 </div>`;
-       for(let i = 0; i < data.list.length; i+=8){
+
+       let highLowTempIndex = 0;
+       let highLowTempsArr = getFiveDayHighLowTemps(data);
+
+        for(let i = 0; i < data.list.length; i+=8){
            let todayDate = new Date(data.list[i].dt * 1000);
-           // check min and max for all instances of i
-           // only going to display information at index 0, 7, 15, 23,... 39
            let stringToAppend = `<div class="card my-2 forecast-card">
-                                  <div class="card-body">
-                                    <h4 class="card-title">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()} <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" class="card-img-top icon-sizing" id="loc-weather-icon" alt="..."></h4>
-                                    <p class="card-text">Temp:      ${Math.round(data.list[i].main.temp)}${degreeStr}</p>
-                                    <p class="card-text">Weather:   ${data.list[i].weather[0].main}</p>
-                                  </div>
-                                </div>`;
+                              <div class="card-body">
+                                <h4 class="card-title">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()} <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" class="card-img-top icon-sizing" id="loc-weather-icon" alt="..."></h4>
+                                <p class="card-text">Temp:      ${Math.round(data.list[i].main.temp)}${degreeStr}</p>
+                                <p class="card-text">Hi/Lo:      ${Math.round(highLowTempsArr[0][highLowTempIndex])}${degreeStr}/${Math.round(highLowTempsArr[1][highLowTempIndex])}${degreeStr}</p>
+                                <p class="card-text">Weather:   ${data.list[i].weather[0].main}</p>
+                              </div>
+                            </div>`;
            rightMenuHTMLString += stringToAppend;
            topMenuHTMLString += `<div class="d-inline top-card-container">${stringToAppend}</div>`;
+           highLowTempIndex++;
        }
         $("#top-forecast-scroll").html(topMenuHTMLString);
         $("#right-side-scroll").html(rightMenuHTMLString);

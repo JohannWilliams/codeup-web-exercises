@@ -113,6 +113,7 @@ $(document).ready(function () {
         $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${mapCenterLoc[1]}&lon=${mapCenterLoc[0]}&units=${currentUnits}&appid=${WEATHER_MAP_KEY}`).done(function(data){
             currentLocWeatherResults = data;
             createBSCardForLocationWeather(currentLocWeatherResults);
+            createBSFiveDayForecastCards((currentLocWeatherResults));
         });
     }
 
@@ -151,6 +152,38 @@ $(document).ready(function () {
                                   </div>
                                 </div>`;
        $("#current-loc-weather-info").html(htmlString);
+   }
+
+   function createBSFiveDayForecastCards(data){
+       if(currentUnits === "imperial"){
+           windSpeedStr = "mph";
+           degreeStr = "°F";
+       } else if(currentUnits === "metric"){
+           windSpeedStr = "m/s";
+           degreeStr = "°C";
+       } else {
+           windSpeedStr = "m/s";
+           degreeStr = "°K";
+       }
+
+       let htmlString = `<div class="card w-100 my-2">
+                                  <div class="card-body">
+                                    <h4 class="card-title">${data.city.name}'s</h4>
+                                    <p class="card-text fs-3 ms-3">5 Day Forecast</p>
+                                  </div>
+                                </div>`;
+
+       for(let i = 0; i < data.list.length; i+=8){
+           let todayDate = new Date(data.list[i].dt * 1000);
+           htmlString += `<div class="card w-100 my-2">
+                                  <div class="card-body">
+                                    <h4 class="card-title">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()} <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" class="card-img-top icon-sizing" id="loc-weather-icon" alt="..."></h4>
+                                    <p class="card-text">Temp:      ${Math.round(data.list[i].main.temp)}${degreeStr}</p>
+                                    <p class="card-text">Weather:   ${data.list[i].weather[0].main}</p>
+                                  </div>
+                                </div>`;
+       }
+       $("#right-side-scroll").html(htmlString);
    }
 
     /**

@@ -79,9 +79,11 @@
 	
 	<!--    Main section for displaying current weather, the future forecast, the map, and current day weather and city information	-->
 	<div class="container-fluid">
-		<div class="container d-block d-lg-none d-xl-none d-xxl-none" id="top-forecast-menu">
-			<h3 class="text-center">5 Day Forecast</h3>
-			<div id="top-forecast-scroll" class="d-flex justify-content-center align-items-center top-scroll-container" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0"></div>
+		<div class="container-fluid d-block d-lg-none d-xl-none d-xxl-none" id="top-forecast-menu">
+			<h3 class="text-center text-white">5 Day Forecast</h3>
+			<div class="container d-flex top-scroll-container">
+				<div id="top-forecast-scroll" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example d-flex" tabindex="0"></div>
+			</div>
 		</div>
 		<div class="row d-flex justify-content-evenly align-items-start">
 			<div class="col-3 d-none d-sm-none d-md-none d-lg-block d-flex flex-column my-2" id="left-side-menu">
@@ -120,7 +122,17 @@
 </main>
 
 <footer class="container-fluid bg-dark py-5">
-	<h1 class="text-center text-light">Just a simple footer</h1>
+	<div class="container">
+		<footer class="py-3">
+			<ul class="nav justify-content-center border-bottom pb-3 mb-3">
+				<li class="nav-item text-light"><a href="#" class="nav-link px-2 text-light">Home</a></li>
+				<li class="nav-item text-light"><a href="#" class="nav-link px-2 text-light">Features</a></li>
+				<li class="nav-item text-light"><a href="#" class="nav-link px-2 text-light">FAQs</a></li>
+				<li class="nav-item text-light"><a href="#" class="nav-link px-2 text-light">About</a></li>
+			</ul>
+			<p class="text-center text-light text-light">&copy; 2023 Masta Weather, Inc</p>
+		</footer>
+	</div>
 </footer>
 
 <!--BS JS-->

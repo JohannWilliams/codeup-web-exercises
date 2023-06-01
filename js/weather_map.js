@@ -186,24 +186,25 @@ $(document).ready(function () {
    function createBSFiveDayForecastCards(data){
        setUnitStrings();
        let topMenuHTMLString = "";
+       let rightMenuHTMLString = `<div class="card my-2 forecast-title">
+                                  <div class="card-body">
+                                    <p class="card-title fs-2 ms-3">${data.city.name}'s</p>
+                                    <p class="card-text fs-5 ms-3">5 Day Forecast</p>
+                                  </div>
+                                </div>`;
        for(let i = 0; i < data.list.length; i+=8){
            let todayDate = new Date(data.list[i].dt * 1000);
-           topMenuHTMLString += `<div class="card my-2 forecast-card">
+           let stringToAppend = `<div class="card my-2 forecast-card">
                                   <div class="card-body">
                                     <h4 class="card-title">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()} <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" class="card-img-top icon-sizing" id="loc-weather-icon" alt="..."></h4>
                                     <p class="card-text">Temp:      ${Math.round(data.list[i].main.temp)}${degreeStr}</p>
                                     <p class="card-text">Weather:   ${data.list[i].weather[0].main}</p>
                                   </div>
                                 </div>`;
+           rightMenuHTMLString += stringToAppend;
+           topMenuHTMLString += `<div class="d-inline top-card-container">${stringToAppend}</div>`;
        }
         $("#top-forecast-scroll").html(topMenuHTMLString);
-        let rightMenuHTMLString = `<div class="card my-2 forecast-title">
-                                  <div class="card-body">
-                                    <p class="card-title fs-2 ms-3">${data.city.name}'s</p>
-                                    <p class="card-text fs-5 ms-3">5 Day Forecast</p>
-                                  </div>
-                                </div>`;
-        rightMenuHTMLString += topMenuHTMLString;
         $("#right-side-scroll").html(rightMenuHTMLString);
    }
 });

@@ -126,9 +126,26 @@ $(document).ready(function () {
     function getWeatherData(){
         $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${mapCenterLoc[1]}&lon=${mapCenterLoc[0]}&units=${currentUnits}&appid=${WEATHER_MAP_KEY}`).done(function(data){
             currentLocWeatherResults = data;
+            console.log(currentLocWeatherResults);
             createBSCardForLocationWeather(currentLocWeatherResults);
             createBSFiveDayForecastCards((currentLocWeatherResults));
         });
+    }
+
+    /**
+     * sets the unit strings for wind speed and temp
+     */
+    function setUnitStrings(){
+        if(currentUnits === "imperial"){
+            windSpeedStr = "mph";
+            degreeStr = "°F";
+        } else if(currentUnits === "metric"){
+            windSpeedStr = "m/s";
+            degreeStr = "°C";
+        } else {
+            windSpeedStr = "m/s";
+            degreeStr = "°K";
+        }
     }
 
     /**
@@ -138,17 +155,7 @@ $(document).ready(function () {
      */
    function createBSCardForLocationWeather(data) {
        let todayDate = new Date(data.list[0].dt * 1000);
-       let iconSrc = `https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`
-       if(currentUnits === "imperial"){
-           windSpeedStr = "mph";
-           degreeStr = "°F";
-       } else if(currentUnits === "metric"){
-           windSpeedStr = "m/s";
-           degreeStr = "°C";
-       } else {
-           windSpeedStr = "m/s";
-           degreeStr = "°K";
-       }
+       setUnitStrings();
        let htmlString = `<div class="card h-100">
                                   
                                   <div class="card-body">
@@ -185,16 +192,11 @@ $(document).ready(function () {
            degreeStr = "°K";
        }
 
-       let htmlString = `<div class="card w-100 my-2">
-                                  <div class="card-body d-flex justify-content-between align-items-center">
-                                    <span class="card-title fs-2 ms-3">${data.city.name}'s</span>
-                                    <span class="card-text fs-5 mx-auto">5 Day Forecast</span>
-                                  </div>
-                                </div>`;
+       let topMenuHTMLString = "";
 
        for(let i = 0; i < data.list.length; i+=8){
            let todayDate = new Date(data.list[i].dt * 1000);
-           htmlString += `<div class="card w-100 my-2">
+           topMenuHTMLString += `<div class="card my-2 forecast-card">
                                   <div class="card-body">
                                     <h4 class="card-title">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()} <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" class="card-img-top icon-sizing" id="loc-weather-icon" alt="..."></h4>
                                     <p class="card-text">Temp:      ${Math.round(data.list[i].main.temp)}${degreeStr}</p>
@@ -202,6 +204,15 @@ $(document).ready(function () {
                                   </div>
                                 </div>`;
        }
-       $("#right-side-scroll").html(htmlString);
+
+        $("#top-forecast-scroll").html(topMenuHTMLString);
+        let rightMenuHTMLString = `<div class="card my-2 forecast-title">
+                                  <div class="card-body">
+                                    <p class="card-title fs-2 ms-3">${data.city.name}'s</p>
+                                    <p class="card-text fs-5 ms-3">5 Day Forecast</p>
+                                  </div>
+                                </div>`;
+        rightMenuHTMLString += topMenuHTMLString;
+        $("#right-side-scroll").html(rightMenuHTMLString);
    }
 });

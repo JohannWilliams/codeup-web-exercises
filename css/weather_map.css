@@ -11,3 +11,25 @@
 #right-side-menu{
     border-radius: 5px;
 }
+
+.forecast-card{
+    height: 15em;
+    width: 17em;
+}
+
+.forecast-title{
+    height: 10em;
+    width: 17em;
+}
+
+.right-side-scroll-container{
+    height: 50em;
+    width: 19em;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+.top-scroll-container{
+    width: 90vw;
+    overflow-x: scroll;
+}

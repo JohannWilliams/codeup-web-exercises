@@ -39,15 +39,15 @@
 	<div class="container py-2 mb-2 d-flex justify-content-evenly align-items-center" id="main-button-section-collapsible">
 	<!--    TODO : add more dropdowns for displaying different options   -->
 		<!--    Location Selection Dropdown -->
-		<div id="location-dropdown" class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-				Locations
-			</button>
-			<ul id="location-dropdown-list-items" class="dropdown-menu">
-				<li><button class="dropdown-item" type="button">Home</button></li>
-				<li><button class="dropdown-item" type="button">Chicago, IL</button></li>
-			</ul>
-		</div>
+<!--		<div id="location-dropdown" class="dropdown">-->
+<!--			<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--				Locations-->
+<!--			</button>-->
+<!--			<ul id="location-dropdown-list-items" class="dropdown-menu">-->
+<!--				<li><button class="dropdown-item" type="button">Home</button></li>-->
+<!--				<li><button class="dropdown-item" type="button">Chicago, IL</button></li>-->
+<!--			</ul>-->
+<!--		</div>-->
 		<!--    Map Style Dropdown  -->
 		<div id="map-style-dropdown" class="dropdown">
 			<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -79,10 +79,11 @@
 	
 	<!--    Main section for displaying current weather, the future forecast, the map, and current day weather and city information	-->
 	<div class="container-fluid">
-		<div class="container d-block d-lg-none d-xl-none d-xxl-none d-flex justify-content-center align-items-center">
-			<h1 class="text-center">Yellow</h1>
+		<div class="container d-block d-lg-none d-xl-none d-xxl-none" id="top-forecast-menu">
+			<h3 class="text-center">5 Day Forecast</h3>
+			<div id="top-forecast-scroll" class="d-flex justify-content-center align-items-center top-scroll-container" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0"></div>
 		</div>
-		<div class="row d-flex justify-content-between align-items-start">
+		<div class="row d-flex justify-content-evenly align-items-start">
 			<div class="col-3 d-none d-sm-none d-md-none d-lg-block d-flex flex-column my-2" id="left-side-menu">
 				<button id="Austin" class="btn btn-outline-secondary w-100 saved-locations-btn" type="submit">
 					<div class="card w-100 my-2">
@@ -106,11 +107,11 @@
 					</div>
 				</button>
 			</div>
-			<div class="col-12 col-lg-6 my-2" id="center-display">
+			<div class="col-12 col-lg-5 my-2" id="center-display">
 				<div class="w-85 my-2" id="map"></div> <!--  div for displaying the map  -->
 				<div class="container px-0 my-2" id="current-loc-weather-info"></div><!-- div for displaying current weather in a BS card -->
 			</div>
-			<div class="col-3 bg-secondary-subtle d-none d-sm-none d-md-none d-lg-block d-flex flex-column my-2" id="right-side-menu">
+			<div class="col-4 bg-secondary-subtle d-none d-sm-none d-md-none d-lg-block d-flex flex-column my-2 right-side-scroll-container" id="right-side-menu">
 				<div id="right-side-scroll" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0"></div>
 			</div>
 		</div>

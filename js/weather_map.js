@@ -50,7 +50,6 @@ $(document).ready(function () {
      */
     function setMapAndMarkerLngLatUpdateWeather(loc){
         mapCenterLoc = loc;
-        // map.setCenter(mapCenterLoc);
         map.flyTo({
             center: mapCenterLoc,
             duration: 10000,
@@ -145,7 +144,6 @@ $(document).ready(function () {
     function getWeatherData(){
         $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${mapCenterLoc[1]}&lon=${mapCenterLoc[0]}&units=${currentUnits}&appid=${WEATHER_MAP_KEY}`).done(function(data){
             currentLocWeatherResults = data;
-            console.log(currentLocWeatherResults);
             createBSCardForLocationWeather(currentLocWeatherResults);
             createBSFiveDayForecastCards((currentLocWeatherResults));
         });

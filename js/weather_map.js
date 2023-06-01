@@ -1,7 +1,6 @@
 "use strict";
 
 $(document).ready(function () {
-    //TODO : code out the weather map.
 
     /**
      * global variables
@@ -9,12 +8,21 @@ $(document).ready(function () {
     let currentLocWeatherResults = {};
     let homeLocation = "Austin, Tx"
     let locationArr = [homeLocation];
-    let mapCenterLoc = [0,0]
+    let mapCenterLoc = [0,0];
     let daysOfWeek = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     let monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let currentUnits = "imperial";
     let windSpeedStr = "";
     let degreeStr = "";
+    /**
+     * create a marker at the maps center location.
+     *  Set it to be draggable on the map and
+     *  add it to the map when map is loaded
+     */
+    let marker = new mapboxgl.Marker({
+        draggable: true,
+        color: "pink"
+    })
 
     /**
      * create the map with a preset location and orientation.
@@ -30,26 +38,53 @@ $(document).ready(function () {
         mapCenterLoc = result;
         map.setCenter(result);
         getWeatherData();
+        marker.setLngLat(mapCenterLoc).addTo(map);  // add the marker to the map.
     });
 
-    /**
-     * create a marker at the maps center
-     * location. Set it to be draggable
-     * on the map and add it to the map
-     */
-    const marker = new mapboxgl.Marker({
-        draggable: true,
-        color: "pink"
-    })
-        .setLngLat(mapCenterLoc)
-        .addTo(map);
 
+    /**
+     * When the marker is dropped set the maps center
+     * to the markers lng and lat. then get weather
+     * data for that location.
+     */
     function dragEnded() {
-        const loc = marker.getLngLat();
-        map.setCenter(loc)
+        let markerLoc = marker.getLngLat();
+        mapCenterLoc[0] = markerLoc.lng;
+        mapCenterLoc[1] = markerLoc.lat;
+        map.setCenter(mapCenterLoc)
+        getWeatherData();
     }
 
+    /**
+     * add event of drag end to the marker.
+     * calls dragEnded function to update info
+     */
     marker.on('dragend', dragEnded);
+
+    /**
+     * click event for search button. calls the address
+     * search method.
+     */
+    $("#location-search-btn").on("click",searchAddress);
+
+    /**
+     * when called. takes the value that is in the text
+     * input and then pass it into the geocode function in
+     * the utils file to get back the lat and long of what
+     * was searched. moves map and marker to that location.
+     * updates current location weather data.
+     */
+    function searchAddress(event) {
+        event.preventDefault();
+        console.log("I was clicked.");
+        geocode($("#location-search-input").val(), MAPBOX_KEY).then(function (result) {
+            mapCenterLoc = result;
+            map.setCenter(mapCenterLoc);
+            map.setZoom(12);
+            marker.setLngLat(mapCenterLoc);
+            getWeatherData()
+        });
+    }
 
     /**
      * when a style dropdown selection is clicked. update
@@ -57,7 +92,6 @@ $(document).ready(function () {
      */
     $(".map-style-selection").on("click", function(){
         let styleStr = `mapbox://styles/mapbox/${this.id}`;
-        console.log(styleStr);
         map.setStyle(styleStr);
     });
 
@@ -76,8 +110,7 @@ $(document).ready(function () {
      * a BS Card for displaying that information.
      */
     function getWeatherData(){
-        let weatherLocation = convertMapboxLocToWeatherLoc(mapCenterLoc);
-        $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${weatherLocation[0]}&lon=${weatherLocation[1]}&units=${currentUnits}&appid=${WEATHER_MAP_KEY}`).done(function(data){
+        $.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${mapCenterLoc[1]}&lon=${mapCenterLoc[0]}&units=${currentUnits}&appid=${WEATHER_MAP_KEY}`).done(function(data){
             currentLocWeatherResults = data;
             createBSCardForLocationWeather(currentLocWeatherResults);
         });

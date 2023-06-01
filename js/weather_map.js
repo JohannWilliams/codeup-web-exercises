@@ -62,6 +62,21 @@ $(document).ready(function () {
     marker.on('dragend', dragEnded);
 
     /**
+     * when a left menu button is click. updated map and
+     * weather to the location of that cities name
+     */
+    $(".saved-locations-btn").on("click", function(event){
+        event.preventDefault();
+        geocode(this.id, MAPBOX_KEY).then(function (result) {
+            mapCenterLoc = result;
+            map.setCenter(mapCenterLoc);
+            map.setZoom(12);
+            marker.setLngLat(mapCenterLoc);
+            getWeatherData()
+        });
+    })
+
+    /**
      * click event for search button. calls the address
      * search method.
      */
@@ -76,7 +91,6 @@ $(document).ready(function () {
      */
     function searchAddress(event) {
         event.preventDefault();
-        console.log("I was clicked.");
         geocode($("#location-search-input").val(), MAPBOX_KEY).then(function (result) {
             mapCenterLoc = result;
             map.setCenter(mapCenterLoc);
@@ -142,8 +156,8 @@ $(document).ready(function () {
                                     <p class="card-text fs-4">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()}</p><hr>
                                     <p class="card-text">Temp:      ${Math.round(data.list[0].main.temp)}${degreeStr}</p>
                                     <p class="card-text">Weather:   ${data.list[0].weather[0].main} - ${data.list[0].weather[0].description}</p>
-                                    <p class="card-text">Wind:      ${data.list[0].wind.speed} ${windSpeedStr}</p> 
-                                    <p class="card-text">Gusting to: ${data.list[0].wind.speed + data.list[0].wind.gust} ${windSpeedStr}</p>
+                                    <p class="card-text">Wind:      ${Math.round(data.list[0].wind.speed)} ${windSpeedStr}</p> 
+                                    <p class="card-text">Gusting to: ${Math.round(data.list[0].wind.speed + data.list[0].wind.gust)} ${windSpeedStr}</p>
                                     <p class="card-text">Cloudiness: ${data.list[0].clouds.all}%</p>
                                     <p class="card-text">Visibility: ${data.list[0].visibility / 100}%</p>
                                   </div>
@@ -154,6 +168,11 @@ $(document).ready(function () {
        $("#current-loc-weather-info").html(htmlString);
    }
 
+    /**
+     * takes in weather data then sets the 5-day forecast
+     * for the current location. populates the right menu.
+     * @param data
+     */
    function createBSFiveDayForecastCards(data){
        if(currentUnits === "imperial"){
            windSpeedStr = "mph";
@@ -167,9 +186,9 @@ $(document).ready(function () {
        }
 
        let htmlString = `<div class="card w-100 my-2">
-                                  <div class="card-body">
-                                    <h4 class="card-title">${data.city.name}'s</h4>
-                                    <p class="card-text fs-3 ms-3">5 Day Forecast</p>
+                                  <div class="card-body d-flex justify-content-between align-items-center">
+                                    <span class="card-title fs-2 ms-3">${data.city.name}'s</span>
+                                    <span class="card-text fs-5 mx-auto">5 Day Forecast</span>
                                   </div>
                                 </div>`;
 
@@ -185,14 +204,4 @@ $(document).ready(function () {
        }
        $("#right-side-scroll").html(htmlString);
    }
-
-    /**
-     * Takes in an array of Lat Long in the format of Mapbox
-     * and converts it into the Weather Map format.
-     * @param locArr
-     * @returns {*[]}
-     */
-    function convertMapboxLocToWeatherLoc(locArr){
-        return [locArr[1], locArr[0]]
-    }
 });

@@ -83,12 +83,34 @@
 			<h1 class="text-center">Yellow</h1>
 		</div>
 		<div class="row d-flex justify-content-between align-items-start">
-			<div class="col-3 d-none d-sm-none d-md-none d-lg-block d-flex flex-column my-2" id="left-side-menu"></div>
+			<div class="col-3 d-none d-sm-none d-md-none d-lg-block d-flex flex-column my-2" id="left-side-menu">
+				<button id="Austin" class="btn btn-outline-secondary w-100 saved-locations-btn" type="submit">
+					<div class="card w-100 my-2">
+						<div class="card-body">
+							<h4 class="card-title">Austin</h4>
+						</div>
+					</div>
+				</button>
+				<button id="Dallas" class="btn btn-outline-secondary w-100 saved-locations-btn" type="submit">
+					<div class="card w-100 my-2">
+						<div class="card-body">
+							<h4 class="card-title">Dallas</h4>
+						</div>
+					</div>
+				</button>
+				<button id="Ramstein" class="btn btn-outline-secondary w-100 saved-locations-btn" type="submit">
+					<div class="card w-100 my-2">
+						<div class="card-body">
+							<h4 class="card-title">Ramstein</h4>
+						</div>
+					</div>
+				</button>
+			</div>
 			<div class="col-12 col-lg-6 my-2" id="center-display">
 				<div class="w-85 my-2" id="map"></div> <!--  div for displaying the map  -->
 				<div class="container px-0 my-2" id="current-loc-weather-info"></div><!-- div for displaying current weather in a BS card -->
 			</div>
-			<div class="col-3 d-none d-sm-none d-md-none d-lg-block d-flex flex-column my-2" id="right-side-menu">
+			<div class="col-3 bg-secondary-subtle d-none d-sm-none d-md-none d-lg-block d-flex flex-column my-2" id="right-side-menu">
 				<div id="right-side-scroll" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0"></div>
 			</div>
 		</div>

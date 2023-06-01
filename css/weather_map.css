@@ -13,7 +13,7 @@
 }
 
 .forecast-card{
-    height: 13em;
+    height: 10em;
     width: 17em;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .forecast-title{
-    height: 10em;
+    height: 8em;
     width: 17em;
 }
 
@@ -35,7 +35,17 @@
 
 .top-scroll-container{
     width: 90vw;
-    height: 14em;
+    height: 11em;
     overflow-x: scroll;
     overflow-y: clip;
+}
+
+.weather-map-logo{
+    width: 6em;
+    height: 6em;
+}
+
+.weather-map-logo-footer{
+    width: 3em;
+    height: 3em;
 }

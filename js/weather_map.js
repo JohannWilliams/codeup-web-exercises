@@ -50,7 +50,12 @@ $(document).ready(function () {
      */
     function setMapAndMarkerLngLatUpdateWeather(loc){
         mapCenterLoc = loc;
-        map.setCenter(mapCenterLoc);
+        // map.setCenter(mapCenterLoc);
+        map.flyTo({
+            center: mapCenterLoc,
+            duration: 10000,
+            zoom: 10
+        });
         marker.setLngLat(loc);
         getWeatherData();
     }
@@ -169,25 +174,28 @@ $(document).ready(function () {
      */
    function createBSCardForLocationWeather(data) {
        let todayDate = new Date(data.list[0].dt * 1000);
+       let highLowTemp = getFiveDayHighLowTemps(data);
        setUnitStrings();
        let htmlString = `<div class="card h-100">
                                   
                                   <div class="card-body">
                                     <h2 class="card-title">${data.city.name} <img src="https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png" class="card-img-top icon-sizing" id="loc-weather-icon" alt="..."></h2>
                                     <p class="card-text fs-4">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()}</p><hr>
-                                    <p class="card-text">Temp:      ${Math.round(data.list[0].main.temp)}${degreeStr}</p>
-                                    <p class="card-text">Weather:   ${data.list[0].weather[0].main} - ${data.list[0].weather[0].description}</p>
-                                    <p class="card-text">Wind:      ${Math.round(data.list[0].wind.speed)} ${windSpeedStr}</p> 
-                                    <p class="card-text">Gusting to: ${Math.round(data.list[0].wind.speed + data.list[0].wind.gust)} ${windSpeedStr}</p>
-                                    <p class="card-text">Cloudiness: ${data.list[0].clouds.all}%</p>
-                                    <p class="card-text">Visibility: ${data.list[0].visibility / 100}%</p>
+                                    <p class="card-text">Currently  ${Math.round(data.list[0].main.temp)}${degreeStr}</p>
+                                    <p class="card-text"> Hi / Lo</p>
+                                    <p class="card-text">${Math.round(highLowTemp[0][0])}${degreeStr} / ${Math.round(highLowTemp[1][0])}${degreeStr}</p>
+                                    <p class="card-text">${data.list[0].weather[0].main} - ${data.list[0].weather[0].description}</p>
+                                    <p class="card-text">${Math.round(data.list[0].wind.speed)} ${windSpeedStr} Winds</p> 
+                                    <p class="card-text">${Math.round(data.list[0].wind.gust)} ${windSpeedStr} Gusts</p>
+                                    <p class="card-text">${data.list[0].clouds.all}% Cloudy</p>
+                                    <p class="card-text">${data.list[0].visibility / 100}% Visibility</p>
                                   </div>
                                   <div class="card-footer">
                                     <div class="row">
-                                        <div class="col-10">
+                                        <div class="col-11">
                                             <small class="text-start text-body-secondary">Country Code:</small>
                                         </div>
-                                        <div class="col-2">
+                                        <div class="col-1">
                                             <small class="text-end text-body-secondary">${data.city.country}</small>
                                         </div>
                                     </div>
@@ -206,7 +214,6 @@ $(document).ready(function () {
    function getFiveDayHighLowTemps(data){
        let tempLowArr = [];
        let tempHighArr = [];
-       let highLowTempIndex = 0;
        let currentDay = 0;
        let currentDayLow = 0;
        let currentDayHigh = 0;
@@ -257,7 +264,7 @@ $(document).ready(function () {
        let topMenuHTMLString = "";
        let rightMenuHTMLString = `<div class="card my-2 forecast-title">
                                   <div class="card-body">
-                                    <p class="card-title fs-2 ms-3">${data.city.name}'s</p>
+                                    <p class="card-title fs-2 ms-3">Masta's</p>
                                     <p class="card-text fs-5 ms-3">5 Day Forecast</p>
                                   </div>
                                 </div>`;
@@ -270,8 +277,7 @@ $(document).ready(function () {
            let stringToAppend = `<div class="card my-2 forecast-card">
                               <div class="card-body">
                                 <h4 class="card-title">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()} <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" class="card-img-top icon-sizing" id="loc-weather-icon" alt="..."></h4>
-                                <p class="card-text">Temp:      ${Math.round(data.list[i].main.temp)}${degreeStr}</p>
-                                <p class="card-text">Hi/Lo:      ${Math.round(highLowTempsArr[0][highLowTempIndex])}${degreeStr}/${Math.round(highLowTempsArr[1][highLowTempIndex])}${degreeStr}</p>
+                                <p class="card-text">Hi/Lo:      ${Math.round(highLowTempsArr[0][highLowTempIndex])}${degreeStr} / ${Math.round(highLowTempsArr[1][highLowTempIndex])}${degreeStr}</p>
                                 <p class="card-text">Weather:   ${data.list[i].weather[0].main}</p>
                               </div>
                             </div>`;

@@ -42,6 +42,12 @@ $(document).ready(function () {
         map.on("click",updateMarkerOnClick)
     });
 
+    /**
+     * take in a location with long and lat.
+     * set the map, marker and weather to that
+     * location.
+     * @param loc
+     */
     function setMapAndMarkerLngLatUpdateWeather(loc){
         mapCenterLoc = loc;
         map.setCenter(mapCenterLoc);
@@ -60,7 +66,6 @@ $(document).ready(function () {
         let loc = event.lngLat;
         setMapAndMarkerLngLatUpdateWeather([loc.lng, loc.lat]);
     }
-
 
     /**
      * When the marker is dropped set the maps center

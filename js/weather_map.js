@@ -49,6 +49,12 @@ $(document).ready(function () {
         getWeatherData();
     }
 
+    /**
+     * When the map is clicked, take the long and lat
+     * of the mouses location and then update the
+     * map, marker and weather to the location clicked.
+     * @param event
+     */
     function updateMarkerOnClick(event){
         event.preventDefault();
         let loc = event.lngLat;
@@ -172,7 +178,14 @@ $(document).ready(function () {
                                     <p class="card-text">Visibility: ${data.list[0].visibility / 100}%</p>
                                   </div>
                                   <div class="card-footer">
-                                    <small class="text-body-secondary">Last updated 3 mins ago</small>
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <small class="text-start text-body-secondary">Country Code:</small>
+                                        </div>
+                                        <div class="col-2">
+                                            <small class="text-end text-body-secondary">${data.city.country}</small>
+                                        </div>
+                                    </div>
                                   </div>
                                 </div>`;
        $("#current-loc-weather-info").html(htmlString);
@@ -194,6 +207,8 @@ $(document).ready(function () {
                                 </div>`;
        for(let i = 0; i < data.list.length; i+=8){
            let todayDate = new Date(data.list[i].dt * 1000);
+           // check min and max for all instances of i
+           // only going to display information at index 0, 7, 15, 23,... 39
            let stringToAppend = `<div class="card my-2 forecast-card">
                                   <div class="card-body">
                                     <h4 class="card-title">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()} <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" class="card-img-top icon-sizing" id="loc-weather-icon" alt="..."></h4>

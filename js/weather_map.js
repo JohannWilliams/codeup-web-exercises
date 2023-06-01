@@ -39,7 +39,21 @@ $(document).ready(function () {
         map.setCenter(result);
         getWeatherData();
         marker.setLngLat(mapCenterLoc).addTo(map);  // add the marker to the map.
+        map.on("click",updateMarkerOnClick)
     });
+
+    function setMapAndMarkerLngLatUpdateWeather(loc){
+        mapCenterLoc = loc;
+        map.setCenter(mapCenterLoc);
+        marker.setLngLat(loc);
+        getWeatherData();
+    }
+
+    function updateMarkerOnClick(event){
+        event.preventDefault();
+        let loc = event.lngLat;
+        setMapAndMarkerLngLatUpdateWeather([loc.lng, loc.lat]);
+    }
 
 
     /**
@@ -49,10 +63,7 @@ $(document).ready(function () {
      */
     function dragEnded() {
         let markerLoc = marker.getLngLat();
-        mapCenterLoc[0] = markerLoc.lng;
-        mapCenterLoc[1] = markerLoc.lat;
-        map.setCenter(mapCenterLoc)
-        getWeatherData();
+        setMapAndMarkerLngLatUpdateWeather([markerLoc.lng, markerLoc.lat]);
     }
 
     /**
@@ -68,11 +79,7 @@ $(document).ready(function () {
     $(".saved-locations-btn").on("click", function(event){
         event.preventDefault();
         geocode(this.id, MAPBOX_KEY).then(function (result) {
-            mapCenterLoc = result;
-            map.setCenter(mapCenterLoc);
-            map.setZoom(12);
-            marker.setLngLat(mapCenterLoc);
-            getWeatherData()
+            setMapAndMarkerLngLatUpdateWeather(result);
         });
     })
 
@@ -92,11 +99,7 @@ $(document).ready(function () {
     function searchAddress(event) {
         event.preventDefault();
         geocode($("#location-search-input").val(), MAPBOX_KEY).then(function (result) {
-            mapCenterLoc = result;
-            map.setCenter(mapCenterLoc);
-            map.setZoom(12);
-            marker.setLngLat(mapCenterLoc);
-            getWeatherData()
+            setMapAndMarkerLngLatUpdateWeather(result);
         });
     }
 
@@ -181,19 +184,8 @@ $(document).ready(function () {
      * @param data
      */
    function createBSFiveDayForecastCards(data){
-       if(currentUnits === "imperial"){
-           windSpeedStr = "mph";
-           degreeStr = "°F";
-       } else if(currentUnits === "metric"){
-           windSpeedStr = "m/s";
-           degreeStr = "°C";
-       } else {
-           windSpeedStr = "m/s";
-           degreeStr = "°K";
-       }
-
+       setUnitStrings();
        let topMenuHTMLString = "";
-
        for(let i = 0; i < data.list.length; i+=8){
            let todayDate = new Date(data.list[i].dt * 1000);
            topMenuHTMLString += `<div class="card my-2 forecast-card">
@@ -204,7 +196,6 @@ $(document).ready(function () {
                                   </div>
                                 </div>`;
        }
-
         $("#top-forecast-scroll").html(topMenuHTMLString);
         let rightMenuHTMLString = `<div class="card my-2 forecast-title">
                                   <div class="card-body">

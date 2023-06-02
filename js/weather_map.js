@@ -93,7 +93,7 @@ $(document).ready(function () {
      * user.
      */
     function deleteLocationBtn(){
-        let locationName = currentLocWeatherResults.city.name;
+        let locationName = currentLocWeatherResults.city.name.replace(" ", "-");
         if($(`#${locationName}`).length){
             $(`#${locationName}`).remove();
         } else {
@@ -110,7 +110,7 @@ $(document).ready(function () {
         return `<button id="${idAndName}" class="btn btn-outline-secondary w-100 saved-locations-btn px-0" type="submit">
                     <div class="card w-100 my-2">
                         <div class="card-body">
-                            <h4 class="card-title">${idAndName}</h4>
+                            <h4 class="card-title">${idAndName.replace("-", " ")}</h4>
                         </div>
                     </div>
                 </button>`;
@@ -122,7 +122,7 @@ $(document).ready(function () {
      * to that location.
      */
     function saveLocationAsBtn(){
-        let locationName = currentLocWeatherResults.city.name;
+        let locationName = currentLocWeatherResults.city.name.replace(" ","-");
         if($(`#${locationName}`).length){
             alert("This Location Already Has A Quick Reference Button.")
         } else {

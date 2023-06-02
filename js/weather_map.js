@@ -51,7 +51,7 @@ $(document).ready(function () {
         mapCenterLoc = loc;
         map.flyTo({
             center: mapCenterLoc,
-            duration: 2000,
+            duration: 5000,
             zoom: 10
         });
         marker.setLngLat(loc);

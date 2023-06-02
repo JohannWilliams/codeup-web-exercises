@@ -52,7 +52,7 @@ $(document).ready(function () {
         mapCenterLoc = loc;
         map.flyTo({
             center: mapCenterLoc,
-            duration: 10000,
+            duration: 2000,
             zoom: 10
         });
         marker.setLngLat(loc);
@@ -88,9 +88,18 @@ $(document).ready(function () {
     marker.on('dragend', dragEnded);
 
     /**
-     * when clicked, current location will be saved to left menu as a new button.
+     * Deletes the current locations quick reference button in the
+     * left menu if one exists already. It one does not, alert the
+     * user.
      */
-    $("#add-new-location-btn").on("click",saveLocationAsBtn)
+    function deleteLocationBtn(){
+        let locationName = currentLocWeatherResults.city.name;
+        if($(`#${locationName}`).length){
+            $(`#${locationName}`).remove();
+        } else {
+            alert("No Quick Reference Button Exists For This Location.")
+        }
+    }
 
     /**
      * creates an HTML string btn card for the new Left Menu locations buttons.
@@ -98,7 +107,7 @@ $(document).ready(function () {
      * @returns {string}
      */
     function createSavedLocBtn(idAndName){
-        return `<button id="${idAndName}" class="btn btn-outline-secondary w-100 saved-locations-btn" type="submit">
+        return `<button id="${idAndName}" class="btn btn-outline-secondary w-100 saved-locations-btn px-0" type="submit">
                     <div class="card w-100 my-2">
                         <div class="card-body">
                             <h4 class="card-title">${idAndName}</h4>
@@ -115,7 +124,7 @@ $(document).ready(function () {
     function saveLocationAsBtn(){
         let locationName = currentLocWeatherResults.city.name;
         if($(`#${locationName}`).length){
-            alert("This button location already exists")
+            alert("This Location Already Has A Quick Reference Button.")
         } else {
             let leftMenuHTML = $("#left-side-menu").html();
             leftMenuHTML += createSavedLocBtn(locationName);
@@ -124,17 +133,27 @@ $(document).ready(function () {
         setLocationButtonClickFunction();
     }
 
-    /**
-     * when a left menu button is click. updated map and
-     * weather to the location of that cities name
-     */
     function setLocationButtonClickFunction(){
+        /**
+         * when a left menu button is click. updated map and
+         * weather to the location of that cities name
+         */
         $(".saved-locations-btn").on("click", function(event){
             event.preventDefault();
             geocode(this.id, MAPBOX_KEY).then(function (result) {
                 setMapAndMarkerLngLatUpdateWeather(result);
             });
         })
+
+        /**
+         * when clicked, current location will be saved to left menu as a new button.
+         */
+        $("#add-new-location-btn").on("click",saveLocationAsBtn);
+
+        /**
+         * when clicked, if current location has a quick ref btn in left menu delete it.
+         */
+        $("#remove-location-btn").on("click", deleteLocationBtn);
     }
     setLocationButtonClickFunction();
 

@@ -88,15 +88,55 @@ $(document).ready(function () {
     marker.on('dragend', dragEnded);
 
     /**
+     * when clicked, current location will be saved to left menu as a new button.
+     */
+    $("#add-new-location-btn").on("click",saveLocationAsBtn)
+
+    /**
+     * creates an HTML string btn card for the new Left Menu locations buttons.
+     * @param idAndName
+     * @returns {string}
+     */
+    function createSavedLocBtn(idAndName){
+        return `<button id="${idAndName}" class="btn btn-outline-secondary w-100 saved-locations-btn" type="submit">
+                    <div class="card w-100 my-2">
+                        <div class="card-body">
+                            <h4 class="card-title">${idAndName}</h4>
+                        </div>
+                    </div>
+                </button>`;
+    }
+
+    /**
+     * creates a new btn in the Left Menu if one does not already exist
+     * and sets the onclick event for updating the map, marker and weather
+     * to that location.
+     */
+    function saveLocationAsBtn(){
+        let locationName = currentLocWeatherResults.city.name;
+        if($(`#${locationName}`).length){
+            alert("This button location already exists")
+        } else {
+            let leftMenuHTML = $("#left-side-menu").html();
+            leftMenuHTML += createSavedLocBtn(locationName);
+            $("#left-side-menu").html(leftMenuHTML);
+        }
+        setLocationButtonClickFunction();
+    }
+
+    /**
      * when a left menu button is click. updated map and
      * weather to the location of that cities name
      */
-    $(".saved-locations-btn").on("click", function(event){
-        event.preventDefault();
-        geocode(this.id, MAPBOX_KEY).then(function (result) {
-            setMapAndMarkerLngLatUpdateWeather(result);
-        });
-    })
+    function setLocationButtonClickFunction(){
+        $(".saved-locations-btn").on("click", function(event){
+            event.preventDefault();
+            geocode(this.id, MAPBOX_KEY).then(function (result) {
+                setMapAndMarkerLngLatUpdateWeather(result);
+            });
+        })
+    }
+    setLocationButtonClickFunction();
 
     /**
      * click event for search button. calls the address

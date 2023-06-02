@@ -7,7 +7,6 @@ $(document).ready(function () {
      */
     let currentLocWeatherResults = {};
     let homeLocation = "Austin, Tx"
-    let locationArr = [homeLocation];
     let mapCenterLoc = [0,0];
     let daysOfWeek = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     let monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -133,6 +132,9 @@ $(document).ready(function () {
         setLocationButtonClickFunction();
     }
 
+    /**
+     * add click events to left menu buttons.
+     */
     function setLocationButtonClickFunction(){
         /**
          * when a left menu button is click. updated map and

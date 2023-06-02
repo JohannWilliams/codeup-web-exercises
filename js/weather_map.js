@@ -236,7 +236,6 @@ $(document).ready(function () {
        let highLowTemp = getFiveDayHighLowTemps(data);
        setUnitStrings();
        let htmlString = `<div class="card h-100">
-                                  
                                   <div class="card-body">
                                     <h2 class="card-title">${data.city.name} <img src="https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png" class="card-img-top icon-sizing" id="loc-weather-icon" alt="..."></h2>
                                     <p class="card-text fs-4">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()}</p><hr>
@@ -251,10 +250,10 @@ $(document).ready(function () {
                                   </div>
                                   <div class="card-footer">
                                     <div class="row">
-                                        <div class="col-11">
+                                        <div class="col-10">
                                             <small class="text-start text-body-secondary">Country Code:</small>
                                         </div>
-                                        <div class="col-1">
+                                        <div class="col-2">
                                             <small class="text-end text-body-secondary">${data.city.country}</small>
                                         </div>
                                     </div>

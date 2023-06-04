@@ -125,9 +125,9 @@ $(document).ready(function () {
         if($(`#${locationName}`).length){
             alert("This Location Already Has A Quick Reference Button.")
         } else {
-            let leftMenuHTML = $("#left-side-menu").html();
+            let leftMenuHTML = $("#left-side-menu-locations").html();
             leftMenuHTML += createSavedLocBtn(locationName);
-            $("#left-side-menu").html(leftMenuHTML);
+            $("#left-side-menu-locations").html(leftMenuHTML);
         }
         setLocationButtonClickFunction();
     }
@@ -147,17 +147,19 @@ $(document).ready(function () {
             });
         })
 
-        /**
-         * when clicked, current location will be saved to left menu as a new button.
-         */
-        $("#add-new-location-btn").on("click",saveLocationAsBtn);
 
-        /**
-         * when clicked, if current location has a quick ref btn in left menu delete it.
-         */
-        $("#remove-location-btn").on("click", deleteLocationBtn);
     }
     setLocationButtonClickFunction();
+
+    /**
+     * when clicked, current location will be saved to left menu as a new button.
+     */
+    $("#add-new-location-btn").on("click",saveLocationAsBtn);
+
+    /**
+     * when clicked, if current location has a quick ref btn in left menu delete it.
+     */
+    $("#remove-location-btn").on("click", deleteLocationBtn);
 
     /**
      * click event for search button. calls the address

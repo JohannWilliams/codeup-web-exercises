@@ -137,6 +137,10 @@ $(document).ready(function () {
      */
     function setLocationButtonClickFunction(){
         /**
+         * ensure that no duplicate click event is attached to any location button.
+         */
+        $(".saved-locations-btn").off("click", "**");
+        /**
          * when a left menu button is click. updated map and
          * weather to the location of that cities name
          */

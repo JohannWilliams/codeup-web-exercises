@@ -38,6 +38,7 @@
     height: 11em;
     overflow-x: scroll;
     overflow-y: clip;
+    border-radius: 5px;
 }
 
 .weather-map-logo{

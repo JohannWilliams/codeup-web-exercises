@@ -92,7 +92,7 @@ $(document).ready(function () {
      * user.
      */
     function deleteLocationBtn(){
-        let locationName = currentLocWeatherResults.city.name.replace(" ", "-");
+        let locationName = currentLocWeatherResults.city.name.replaceAll(" ", "-");
         if($(`#${locationName}`).length){
             $(`#${locationName}`).remove();
         } else {
@@ -109,7 +109,7 @@ $(document).ready(function () {
         return `<button id="${idAndName}" class="btn btn-outline-secondary w-100 saved-locations-btn px-0" type="submit">
                     <div class="card w-100 my-2">
                         <div class="card-body">
-                            <h4 class="card-title">${idAndName.replace("-", " ")}</h4>
+                            <h4 class="card-title">${idAndName.replaceAll("-", " ")}</h4>
                         </div>
                     </div>
                 </button>`;
@@ -121,7 +121,7 @@ $(document).ready(function () {
      * to that location.
      */
     function saveLocationAsBtn(){
-        let locationName = currentLocWeatherResults.city.name.replace(" ","-");
+        let locationName = currentLocWeatherResults.city.name.replaceAll(" ","-");
         if($(`#${locationName}`).length){
             alert("This Location Already Has A Quick Reference Button.")
         } else {
@@ -237,7 +237,7 @@ $(document).ready(function () {
        let todayDate = new Date(data.list[0].dt * 1000);
        let highLowTemp = getFiveDayHighLowTemps(data);
        setUnitStrings();
-       let htmlString = `<div class="card h-100">
+       let htmlString = `<div class="card bg-dark-subtle h-100">
                                   <div class="card-body">
                                     <h2 class="card-title">${data.city.name} <img src="https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png" class="card-img-top icon-sizing" id="loc-weather-icon" alt="..."></h2>
                                     <p class="card-text fs-4">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()}</p><hr>
@@ -322,7 +322,7 @@ $(document).ready(function () {
    function createBSFiveDayForecastCards(data){
        setUnitStrings();
        let topMenuHTMLString = "";
-       let rightMenuHTMLString = `<div class="card my-2 forecast-title">
+       let rightMenuHTMLString = `<div class="card bg-dark-subtle my-2 ms-1 forecast-title">
                                   <div class="card-body">
                                     <p class="card-title fs-2 ms-3">Masta's</p>
                                     <p class="card-text fs-5 ms-3">5 Day Forecast</p>
@@ -334,8 +334,8 @@ $(document).ready(function () {
 
         for(let i = 0; i < data.list.length; i+=8){
            let todayDate = new Date(data.list[i].dt * 1000);
-           let stringToAppend = `<div class="card my-2 forecast-card">
-                              <div class="card-body">
+           let stringToAppend = `<div class="card bg-secondary my-2 ms-1 forecast-card">
+                              <div class="card-body text-white">
                                 <h4 class="card-title">${daysOfWeek[todayDate.getDay()]}, ${monthsOfYear[todayDate.getMonth()]} ${todayDate.getDate()} <img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" class="card-img-top icon-sizing" id="loc-weather-icon" alt="..."></h4>
                                 <p class="card-text">Hi/Lo:      ${Math.round(highLowTempsArr[0][highLowTempIndex])}${degreeStr} / ${Math.round(highLowTempsArr[1][highLowTempIndex])}${degreeStr}</p>
                                 <p class="card-text">Weather:   ${data.list[i].weather[0].main}</p>

@@ -8,8 +8,8 @@ $(document).ready(function () {
     let currentLocWeatherResults = {};
     let homeLocation = "Austin, Tx"
     let mapCenterLoc = [0,0];
-    let daysOfWeek = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    let monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let daysOfWeek = [ "Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
+    let monthsOfYear = ["Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."];
     let currentUnits = "imperial";
     let windSpeedStr = "";
     let degreeStr = "";

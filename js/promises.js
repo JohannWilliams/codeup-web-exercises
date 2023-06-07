@@ -57,7 +57,8 @@
         })
     }
 
-    const request = getLastCommit("JohannWilliams");
+    const userName = "JohannWilliams"
+    const request = getLastCommit(userName);
     request.then(response => console.log(response));
     request.catch(error => console.error(error));
 

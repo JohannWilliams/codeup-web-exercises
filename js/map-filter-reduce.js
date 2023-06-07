@@ -1,6 +1,6 @@
 "use strict";
 
-(()=>{
+(() => {
     const users = [
         {
             id: 1,
@@ -43,7 +43,7 @@
      * use .filter to create an array of users where each user
      * has at least 3 languages.
      */
-    const usersWThreeLanguages= users.filter(user => user.languages.length >= 3);
+    const usersWThreeLanguages = users.filter(user => user.languages.length >= 3);
     console.log(usersWThreeLanguages);
 
     /**
@@ -57,10 +57,10 @@
      * user reduce to get the total years of experience and
      * then use the total years to get the average years.
      */
-    const totalYearsExp = users.reduce((total, {yearsOfExperience})=>{
+    const totalYearsExp = users.reduce((total, {yearsOfExperience}) => {
         return total + yearsOfExperience;
-    },0)
-    const avgYearsExp = totalYearsExp/users.length;
+    }, 0)
+    const avgYearsExp = totalYearsExp / users.length;
 
     console.log(`Total Years Exp: ${totalYearsExp}\nAvg Years Exp: ${avgYearsExp}`);
 
@@ -68,12 +68,12 @@
      * use .reduce to get the longest email from the list
      * of users
      */
-    const longestEmail = users.reduce((lEmail,{email})=>{
-        if(lEmail.length < email.length){
+    const longestEmail = users.reduce((lEmail, {email}) => {
+        if (lEmail.length < email.length) {
             lEmail = email;
         }
         return lEmail;
-    },"");
+    }, "");
 
     console.log(longestEmail);
 
@@ -81,11 +81,26 @@
      * use .reduce to get the users names in a single string
      * ex. Your Instructors are: name, name, name,..., name
      */
-    const userNameStr = users.reduce((nameStr,{name})=> {
+    const userNameStr = users.reduce((nameStr, {name}) => {
         return nameStr += ` ${name},`;
     }, "Your Instructors are: ")
 
     console.log(userNameStr);
 
 
+    /**
+     * Bonus
+     * use .reduce to get a unique list of languages from
+     * the list of users
+     */
+    const uniqueLanguages = users.reduce((language, {languages}) => {
+        for(let lang of languages){
+            if(!language.includes(lang)){
+                language.push(lang);
+            }
+        }
+        return language;
+    }, []);
+
+    console.log(uniqueLanguages);
 })();

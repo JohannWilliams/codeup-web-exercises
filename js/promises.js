@@ -9,14 +9,14 @@
     function wait(num){
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(num);
+                resolve(`You'll see this after ${num/1000} second.`);
             }, num);
         });
     }
 
-    // for(let i = 0; i < 10; i++){
-    //     console.log(wait(Math.floor(Math.random() * 5000) + 1000).then((message) => console.log(`You'll see this after ${message/1000} second. Promise call ${i + 1}`)));
-    // }
+    for(let i = 0; i < 10; i++){
+        console.log(wait(Math.floor(Math.random() * 5000) + 1000).then((message) => console.log(`Promise call ${i + 1}. ${message}`)));
+    }
 
 
     /**
@@ -31,8 +31,6 @@
      * Create a function that accepts a GitHub username, and returns a promise that resolves returning just the date of the last commit that user made. Reference the github api documentation to achieve this.
      */
 
-
-
     const url = 'https://api.github.com/users';
     function getLastCommit(userName){
         return new Promise((resolve, reject) => {
@@ -40,9 +38,18 @@
                 headers: {'Authorization': GITHUB_KEY}
             })
                 .then(response => response.json())
-                .then(response => response[0].payload.commits[0])
                 .then(response => {
-                    resolve(response);
+                    const type = response[0].type;
+                    const commits = response[0].payload.commits;
+                    const created_at = response[0].created_at;
+                    return {type, commits, created_at};
+                })
+                .then(response => {
+                    let message = `Last ${response.type} occurred on ${response.created_at}.\n\nThis ${response.type} contains the following commits from ${response.commits[0].author.name}:\n\n`;
+                    for(const commit of response.commits){
+                        message += `${commit.message}\n`;
+                    }
+                    resolve(message);
                 })
                 .catch(error => {
                     reject(error);

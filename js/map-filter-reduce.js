@@ -64,6 +64,18 @@
 
     console.log(`Total Years Exp: ${totalYearsExp}\nAvg Years Exp: ${avgYearsExp}`);
 
+    /**
+     * use .reduce to get the longest email from the list
+     * of users
+     */
+    const longestEmail = users.reduce((lEmail,{email})=>{
+        if(lEmail.length < email.length){
+            lEmail = email;
+        }
+        return lEmail;
+    },"");
+
+    console.log(longestEmail);
 
 
 })();

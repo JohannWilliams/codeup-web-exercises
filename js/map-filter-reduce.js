@@ -38,4 +38,20 @@
             yearsOfExperience: 9
         }
     ];
+
+    /**
+     * use .filter to create an array of users where each user
+     * has at least 3 languages.
+     */
+    const usersWThreeLanguages= users.filter(user => user.languages.length >= 3);
+    console.log(usersWThreeLanguages);
+
+    /**
+     * user .map to create an array of each user's email as
+     * a string.
+     */
+    const userEmails = users.map(user => user.email);
+    console.log(userEmails);
+
+
 })();

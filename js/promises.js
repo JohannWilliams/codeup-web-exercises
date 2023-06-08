@@ -50,7 +50,7 @@
 
                 })
                 .then(response => {
-                    let message = `Last ${response.type} occurred on ${response.created_at}.\n\nThis ${response.type} contains the following commits from ${response.commits[0].author.name}:\n\n`;
+                    let message = `Last ${response.type} occurred on ${response.created_at}.\n\nThis ${response.type} contains the following commits from ${response.commits[0].author.name}:\n\nCommits:\n`;
                     for(const commit of response.commits){
                         message += `${commit.message}\n`;
                     }

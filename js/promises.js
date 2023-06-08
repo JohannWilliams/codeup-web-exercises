@@ -39,10 +39,15 @@
             })
                 .then(response => response.json())
                 .then(response => {
-                    const type = response[0].type;
-                    const commits = response[0].payload.commits;
-                    const created_at = response[0].created_at;
-                    return {type, commits, created_at};
+                    for(let resp of response){
+                        if(resp.type === "PushEvent"){
+                            const type = resp.type;
+                            const commits = resp.payload.commits;
+                            const created_at = new Date(resp.created_at);
+                            return {type, commits, created_at};
+                        }
+                    }
+
                 })
                 .then(response => {
                     let message = `Last ${response.type} occurred on ${response.created_at}.\n\nThis ${response.type} contains the following commits from ${response.commits[0].author.name}:\n\n`;

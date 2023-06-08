@@ -35,7 +35,7 @@
     function getLastCommit(userName){
         return new Promise((resolve, reject) => {
             fetch(`${url}/${userName}/events/public`,{
-                headers: {'Authorization': GITHUB_KEY}
+                headers: {'Authorization': `token ${GITHUB_KEY}`}
             })
                 .then(response => response.json())
                 .then(response => {
